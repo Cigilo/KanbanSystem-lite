@@ -1,0 +1,197 @@
+classDiagram
+    %% ======= Domain (modelo) =======
+    class Activity {
+        - string id_
+        - string description_
+        - TimePoint when_
+        + Activity(string id, string description, TimePoint when)
+        + id() string
+        + description() string
+        + when() TimePoint
+    }
+
+    class ActivityLog {
+        - vector<Activity> activities_
+        + add(Activity act) void
+        + activities() vector<Activity>
+        + size() size_t
+        + empty() bool
+        + last() Activity
+        + clear() void
+    }
+
+    class Board {
+        - string id_
+        - string name_
+        - vector<shared_ptr<Column>> columns_
+        - shared_ptr<ActivityLog> activityLog_
+        + Board(string id, string name)
+        + id() string
+        + name() string
+        + setName(string name) void
+        + addColumn(shared_ptr<Column>) void
+        + removeColumnById(string columnId) shared_ptr<Column>
+        + columns() vector<shared_ptr<Column>>
+        + findColumn(string columnId) shared_ptr<Column>
+        + columnCount() size_t
+        + moveCard(string cardId, string fromColumnId, string toColumnId) void
+        + setActivityLog(shared_ptr<ActivityLog>) void
+        + activityLog() shared_ptr<ActivityLog>
+        + hasColumn(string columnId) bool
+        + clear() void
+    }
+
+    class Column {
+        - string id_
+        - string name_
+        - vector<shared_ptr<Card>> cards_
+        + Column(string id, string name)
+        + id() string
+        + name() string
+        + setName(string name) void
+        + addCard(shared_ptr<Card>) void
+        + insertCardAt(size_t index, shared_ptr<Card>) void
+        + removeCardById(string cardId) shared_ptr<Card>
+        + cards() vector<shared_ptr<Card>>
+        + findCard(string cardId) shared_ptr<Card>
+        + size() size_t
+        + empty() bool
+        + hasCard(string cardId) bool
+        + clear() void
+    }
+
+    class Card {
+        - string id_
+        - string title_
+        - optional<string> description_
+        - int priority_
+        - TimePoint createdAt_
+        - TimePoint updatedAt_
+        - vector<shared_ptr<Tag>> tags_
+        + Card(string id, string title)
+        + id() string
+        + title() string
+        + setTitle(string title) void
+        + description() optional<string>
+        + setDescription(string desc) void
+        + priority() int
+        + setPriority(int p) void
+        + createdAt() TimePoint
+        + updatedAt() TimePoint
+        + addTag(shared_ptr<Tag>) void
+        + removeTagById(string tagId) bool
+        + hasTag(string tagId) bool
+        + clearTags() void
+        + tags() vector<shared_ptr<Tag>>
+        + touchUpdated() void
+    }
+
+    class Tag {
+        - string id_
+        - string name_
+        + Tag(string id, string name)
+        + id() string
+        + name() string
+        + setName(string name) void
+    }
+
+    class User {
+        - string id_
+        - string name_
+        + User(string id, string name)
+        + id() string
+        + name() string
+        + setName(string name) void
+    }
+
+    %% ======= Interfaces (contratos) =======
+    class IFilter {
+        <<interface>>
+        + ~IFilter()
+        + matches(const Card& card) bool
+        + clone() unique_ptr<IFilter>
+    }
+
+    class IRepository_T_Id {
+        <<interface>>
+        + ~IRepository()
+        + add(shared_ptr<Object>) void
+        + remove(string id) void
+        + getAll() vector<shared_ptr<Object>>
+        + findById(string id) shared_ptr<Object>
+    }
+
+    class IService {
+        <<interface>>
+        + ~IService()
+        + createSampleData() void
+        + createBoard(string name) string
+        + addColumn(string boardId, string columnName) string
+        + addCard(string boardId, string columnId, string title) string
+        + moveCard(string boardId, string cardId, string fromColumnId, string toColumnId) void
+        + listBoards() vector<shared_ptr<Board>>
+        + findBoard(string boardId) shared_ptr<Board>
+        + listColumns(string boardId) vector<shared_ptr<Column>>
+        + listCards(string columnId) vector<shared_ptr<Card>>
+    }
+
+    class IView {
+        <<interface>>
+        + ~IView()
+        + showMessage(string msg) void
+        + showError(string msg) void
+        + displayBoards(vector<shared_ptr<Board>>) void
+        + displayColumns(vector<shared_ptr<Column>>) void
+        + displayCards(vector<shared_ptr<Card>>) void
+    }
+
+    %% ======= Persistence =======
+    class FileRepositoryException {
+        + FileRepositoryException(string what)
+    }
+
+    class FileRepository_T_Id {
+        - string path_
+        + FileRepository(string path)
+        + ~FileRepository()
+        + add(shared_ptr<Object>) void
+        + remove(string id) void
+        + getAll() vector<shared_ptr<Object>>
+        + findById(string id) shared_ptr<Object>
+    }
+
+    class runtime_error {
+        + runtime_error(string what)
+    }
+
+    %% ======= Relações =======
+    ActivityLog "1" *-- "0..*" Activity : contains
+    Board "1" *-- "0..*" Column : contains
+    Column "1" *-- "0..*" Card : contains
+    Card "1" *-- "0..*" Tag : tags
+    Board "1" --> "0..1" ActivityLog : logs activities
+
+    IFilter ..> Card : depends on
+
+    %% Repositórios genéricos (representados por um tipo genérico)
+    IRepository_T_Id ..|> Board : can persist
+    IRepository_T_Id ..|> Column : can persist
+    IRepository_T_Id ..|> Card : can persist
+    IRepository_T_Id ..|> Tag : can persist
+    IRepository_T_Id ..|> User : can persist
+
+    %% Serviço e view dependências
+    IService ..> Board : uses
+    IService ..> Column : uses
+    IService ..> Card : uses
+
+    IView ..> Board : displays
+    IView ..> Column : displays
+    IView ..> Card : displays
+
+    IService ..> IView : updates
+
+    %% FileRepository implementa IRepository e usa exceção
+    FileRepository_T_Id ..|> IRepository_T_Id : implements
+    FileRepository_T_Id ..> FileRepositoryException : throws
+    FileRepositoryException --|> runtime_error
