@@ -164,7 +164,7 @@ classDiagram
         + runtime_error(string what)
     }
 
-    %% ======= Relações =======
+    %% ======= Relacões =======
     ActivityLog "1" *-- "0..*" Activity : contains
     Board "1" *-- "0..*" Column : contains
     Column "1" *-- "0..*" Card : contains
@@ -173,14 +173,14 @@ classDiagram
 
     IFilter ..> Card : depends on
 
-    %% Repositórios genéricos (representados por um tipo genérico)
+    %% Repositórios genericos (representados por um tipo generico)
     IRepository_T_Id ..|> Board : can persist
     IRepository_T_Id ..|> Column : can persist
     IRepository_T_Id ..|> Card : can persist
     IRepository_T_Id ..|> Tag : can persist
     IRepository_T_Id ..|> User : can persist
 
-    %% Serviço e view dependências
+    %% Servico e view dependências
     IService ..> Board : uses
     IService ..> Column : uses
     IService ..> Card : uses
@@ -191,7 +191,7 @@ classDiagram
 
     IService ..> IView : updates
 
-    %% FileRepository implementa IRepository e usa exceção
+    %% FileRepository implementa IRepository e usa excecao
     FileRepository_T_Id ..|> IRepository_T_Id : implements
     FileRepository_T_Id ..> FileRepositoryException : throws
     FileRepositoryException --|> runtime_error

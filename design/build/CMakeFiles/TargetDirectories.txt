@@ -1,0 +1,3 @@
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/edit_cache.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/rebuild_cache.dir
