@@ -1,0 +1,110 @@
+[
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\kanban_common_autogen\\mocs_compilation.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\build\\kanban_common_autogen\\mocs_compilation.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/mocs_compilation.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/kanban_common_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\domain\\Card.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\domain\\Card.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Card.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/domain/Card.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\domain\\Column.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\domain\\Column.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Column.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/domain/Column.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\domain\\ActivityLog.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\domain\\ActivityLog.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/ActivityLog.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/domain/ActivityLog.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\domain\\Board.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\domain\\Board.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Board.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/domain/Board.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\domain\\User.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\domain\\User.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/User.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/domain/User.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\persistence\\MemoryRepository.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\persistence\\MemoryRepository.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/persistence/MemoryRepository.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/persistence/MemoryRepository.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\application\\KanbanService.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\application\\KanbanService.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/KanbanService.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/application/KanbanService.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\application\\CLIView.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\application\\CLIView.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIView.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/application/CLIView.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_common_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -o CMakeFiles\\kanban_common.dir\\src\\application\\CLIController.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\application\\CLIController.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIController.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir/src/application/CLIController.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_cli.dir\\kanban_cli_autogen\\mocs_compilation.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\build\\kanban_cli_autogen\\mocs_compilation.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/mocs_compilation.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_cli.dir\\src\\application\\main.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\application\\main.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/main.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\kanban_gui_autogen\\mocs_compilation.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\build\\kanban_gui_autogen\\mocs_compilation.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/mocs_compilation.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/kanban_gui_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\src\\gui\\main_gui.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\gui\\main_gui.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/gui/main_gui.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/src/gui/main_gui.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\src\\gui\\MainWindow.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\gui\\MainWindow.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/gui/MainWindow.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/src/gui/MainWindow.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\src\\gui\\ColumnWidget.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\gui\\ColumnWidget.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/gui/ColumnWidget.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/src/gui/ColumnWidget.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\src\\gui\\CardWidget.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\gui\\CardWidget.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/gui/CardWidget.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/src/gui/CardWidget.cpp.obj"
+},
+{
+  "directory": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64 -IC:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_gui_autogen/include -IC:/Users/jp/Desktop/KanbanSystem-lite/design/include -isystem C:/msys64/mingw64/include/qt6/QtCore -isystem C:/msys64/mingw64/include/qt6 -isystem C:/msys64/mingw64/share/qt6/mkspecs/win32-g++ -isystem C:/msys64/mingw64/include/qt6/QtWidgets -isystem C:/msys64/mingw64/include/qt6/QtGui -g -std=c++17 -Wall -Wextra -pedantic -o CMakeFiles\\kanban_gui.dir\\src\\gui\\CardDialog.cpp.obj -c C:\\Users\\jp\\Desktop\\KanbanSystem-lite\\design\\src\\gui\\CardDialog.cpp",
+  "file": "C:/Users/jp/Desktop/KanbanSystem-lite/design/src/gui/CardDialog.cpp",
+  "output": "C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir/src/gui/CardDialog.cpp.obj"
+}
+]

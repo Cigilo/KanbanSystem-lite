@@ -1,0 +1,132 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "KanbanSystem",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_cli::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_cli-Debug-9e237ea34e84d4052af3.json",
+					"name" : "kanban_cli",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_cli_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_cli_autogen-Debug-f2137f5705073920ee6b.json",
+					"name" : "kanban_cli_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_cli_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_cli_autogen_timestamp_deps-Debug-85dc4d6076512007b077.json",
+					"name" : "kanban_cli_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_common::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_common-Debug-3d8d1a886a3003ef382f.json",
+					"name" : "kanban_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_common_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_common_autogen-Debug-6144807a89f6a8efcc65.json",
+					"name" : "kanban_common_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_common_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_common_autogen_timestamp_deps-Debug-e4c533b84e66a792de03.json",
+					"name" : "kanban_common_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_gui-Debug-735b7d14b70fcceb58d4.json",
+					"name" : "kanban_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_gui_autogen-Debug-fa78068363e71e8e5a09.json",
+					"name" : "kanban_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kanban_gui_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kanban_gui_autogen_timestamp_deps-Debug-71dcdbb82b04be5e0c15.json",
+					"name" : "kanban_gui_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/jp/Desktop/KanbanSystem-lite/design/build",
+		"source" : "C:/Users/jp/Desktop/KanbanSystem-lite/design"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}
