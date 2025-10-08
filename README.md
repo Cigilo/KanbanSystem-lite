@@ -1,559 +1,448 @@
-# README de Design - Sistema Kanban Lite
+# Kanban System Lite - Etapa 3: Entrega Final
 
-## 📋 Visão Geral da Arquitetura
+![C++](https://img.shields.io/badge/C++-17-blue.svg)
+![Qt](https://img.shields.io/badge/Qt-6.0-green.svg)
+![CMake](https://img.shields.io/badge/CMake-3.16+-yellow.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)
 
-### Propósito do Sistema
-O **Kanban System Lite** é uma aplicação completa de gerenciamento de tarefas baseada no método Kanban, desenvolvida em C++ moderno. O sistema implementa uma arquitetura em camadas que demonstra princípios avançados de POO, padrões de design e boas práticas de desenvolvimento.
+## 📋 Índice
+- [Visão Geral](#-visão-geral)
+- [🚀 Funcionalidades](#-funcionalidades)
+- [🏗️ Arquitetura](#️-arquitetura)
+- [📦 Requisitos](#-requisitos)
+- [🔧 Build e Instalação](#-build-e-instalação)
+- [🎮 Como Usar](#-como-usar)
+- [📊 Conceitos POO Implementados](#-conceitos-poo-implementados)
+- [🎥 Demonstração](#-demonstração)
+- [🏷️ Versão](#️-versão)
+- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [🤝 Contribuição](#-contribuição)
+- [📄 Licença](#-licença)
 
-### Princípios de Design Fundamentais
-- **Separação de Responsabilidades**: Cada componente tem uma única responsabilidade bem definida
-- **Baixo Acoplamento**: Interfaces bem definidas minimizando dependências
-- **Alta Coesão**: Componentes relacionados são agrupados logicamente
-- **Extensibilidade**: Sistema aberto para extensão, fechado para modificação
+## 🎯 Visão Geral
 
-## 🏗️ Arquitetura em Camadas
+O **Kanban System Lite** é uma aplicação completa de gerenciamento de tarefas baseada no método Kanban, desenvolvida em C++ moderno com interface gráfica Qt6. Este projeto representa a **Etapa 3** do trabalho de Programação Orientada a Objetos, demonstrando a aplicação prática de conceitos avançados de POO em um sistema real.
 
-### 1. Camada de Domínio (Domain Layer)
+**Versão**: 3.0 Final  
+**Data de Entrega**: 06/10/2025  
+**Tag no GitHub**: `v3.0-final`
 
-#### Entidades Principais
+## 🚀 Funcionalidades
 
-**Board (Quadro)**
-```cpp
-class Board {
-    // Representa um quadro Kanban completo
-    // Responsável por gerenciar colunas e coordenar movimentação
-    // Mantém histórico de atividades através do ActivityLog
-}
+### ✨ Funcionalidades Principais
+- ✅ **Gerenciamento de Múltiplos Boards** - Crie e organize diferentes quadros Kanban
+- ✅ **Colunas Personalizáveis** - Adicione colunas com nomes customizados
+- ✅ **Cards Completos** - Tarefas com título, descrição, prioridade e tags
+- ✅ **Drag & Drop Avançado** - Movimente cards entre colunas com interface intuitiva
+- ✅ **Reordenação Interna** - Mova cards para cima/baixo dentro da mesma coluna
+- ✅ **Sistema de Filtros** - Filtre por tags e prioridades em tempo real
+- ✅ **Histórico de Atividades** - Registro completo de todas as ações
+- ✅ **Estatísticas em Tempo Real** - Métricas de uso e distribuição
+- ✅ **Interface Moderna** - Tema escuro com design responsivo
+
+### 🎯 Modos de Operação
+- **GUI (Graphical User Interface)**: Interface gráfica completa com Qt6
+- **CLI (Command Line Interface)**: Interface de linha de comando para automação
+
+## 🏗️ Arquitetura
+
+### 📐 Diagrama de Arquitetura
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   APRESENTAÇÃO  │    │    APLICAÇÃO     │    │     DOMÍNIO     │
+├─────────────────┤    ├──────────────────┤    ├─────────────────┤
+│  MainWindow     │◄───│  KanbanService   │───►│     Board       │
+│  ColumnWidget   │    │  CLIController   │    │     Column      │
+│  CardWidget     │    │                  │    │      Card       │
+│  CardDialog     │    │                  │    │      User       │
+│  CLIView        │    │                  │    │  ActivityLog    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+                     ┌───────────┴───────────┐
+                     │      PERSISTÊNCIA     │
+                     ├───────────────────────┤
+                     │   IRepository<T>      │
+                     │  MemoryRepository     │
+                     │   FileRepository      │
+                     └───────────────────────┘
 ```
 
-**Column (Coluna)**
-```cpp
-class Column {
-    // Container de cards com ordenação preservada
-    // Suporta inserção em posições específicas
-    // Gerencia a ordem dos cards dentro da coluna
-}
+### 🧩 Componentes Principais
+
+**Camada de Domínio** (`domain/`)
+- `Board` - Quadro Kanban contendo colunas
+- `Column` - Coluna dentro de um board
+- `Card` - Tarefa individual com metadados
+- `User` - Usuário do sistema
+- `ActivityLog` - Histórico de atividades
+- `Tag` - Etiquetas para categorização
+
+**Camada de Aplicação** (`application/`)
+- `KanbanService` - Orquestrador principal do sistema
+- `CLIController` - Controlador da interface CLI
+- `CLIView` - Renderizador de saída em terminal
+
+**Camada de Apresentação** (`gui/`)
+- `MainWindow` - Janela principal da aplicação
+- `ColumnWidget` - Widget visual para colunas
+- `CardWidget` - Widget visual para cards
+- `CardDialog` - Diálogo de edição de cards
+
+**Camada de Persistência** (`persistence/`)
+- `IRepository<T>` - Interface genérica para repositórios
+- `MemoryRepository` - Implementação em memória
+- `FileRepository` - Implementação em arquivo
+
+## 📦 Requisitos
+
+### 🖥️ Requisitos de Sistema
+
+**Linux (Ubuntu/Debian)**
+```bash
+# Dependências
+sudo apt update
+sudo apt install build-essential cmake qt6-base-dev
 ```
 
-**Card (Cartão)**
-```cpp
-class Card {
-    // Unidade fundamental de trabalho
-    // Possui título, descrição, prioridade e tags
-    // Implementa operadores de comparação para ordenação
-}
+**Linux (Fedora)**
+```bash
+sudo dnf install gcc-c++ cmake qt6-qtbase-devel
 ```
 
-**ActivityLog (Registro de Atividades)**
-```cpp
-class ActivityLog {
-    // Sistema de auditoria e histórico
-    // Registra timestamp e descrição de todas as ações significativas
-    // Mantém ordenação cronológica automática
-}
+**Windows**
+- Visual Studio 2019+ **OU** MinGW-w64
+- CMake 3.16+
+- Qt6 (via installer ou vcpkg)
+
+### 🔧 Requisitos Técnicos
+- **Compilador**: GCC 9+, Clang 10+, MSVC 2019+
+- **Padrão C++**: C++17
+- **CMake**: 3.16+
+- **Qt**: 6.0+
+
+## 🔧 Build e Instalação
+
+### 🐧 Linux
+
+#### 1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/KanbanSystem-lite.git
+cd KanbanSystem-lite
+git checkout v3.0-final
 ```
 
-#### Padrões no Domínio
-
-**Composition Over Inheritance**
-```cpp
-// Board COMPÕE Column (relação 1:N)
-// Column COMPÕE Card (relação 1:N)  
-// Card POSSUI Tag (relação N:M)
-// Board ASSOCIA ActivityLog (relação 1:1)
+#### 2. Configure o build
+```bash
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
 ```
 
-**Value Objects**
-```cpp
-class Tag {
-    // Objeto de valor imutável
-    // Identificado por ID único
-    // Sem identidade própria independente
-}
+#### 3. Compile
+```bash
+make -j$(nproc)
 ```
 
-### 2. Camada de Aplicação (Application Layer)
+#### 4. Execute
+```bash
+# Interface Gráfica
+./bin/kanban_gui
 
-#### KanbanService
-```cpp
-class KanbanService : public IService {
-    // Orquestrador principal do sistema
-    // Coordena operações complexas entre múltiplas entidades
-    // Aplica regras de negócio e validações
-    // Gera IDs únicos sequenciais
-}
+# Interface de Linha de Comando
+./bin/kanban_cli
 ```
 
-**Responsabilidades:**
-- Validação de regras de negócio
-- Geração de IDs únicos
-- Coordenação entre repositórios
-- Aplicação de transações lógicas
+### 🪟 Windows
 
-#### CLIController
-```cpp
-class CLIController {
-    // Controlador do modo interativo CLI
-    // Parse de comandos e delegação para serviços
-    // Separa lógica de UI da lógica de aplicação
-}
+#### Com Visual Studio
+```bash
+# No Developer Command Prompt
+git clone https://github.com/seu-usuario/KanbanSystem-lite.git
+cd KanbanSystem-lite
+git checkout v3.0-final
+
+mkdir build && cd build
+cmake -G "Visual Studio 16 2019" -A x64 ..
+cmake --build . --config Release
+
+# Executáveis em build/bin/Release/
+./bin/Release/kanban_gui.exe
 ```
 
-### 3. Camada de Persistência (Persistence Layer)
+#### Com MSYS2/Mingw64
+```bash
+# Instale as dependências
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-qt6
 
-#### Interface de Repository
-```cpp
-template<typename T, typename Id = std::string>
-class IRepository {
-    // Contrato genérico para operações CRUD
-    // Tipo seguro através de templates
-    // Suporta diferentes estratégias de persistência
-}
+# Build
+mkdir build && cd build
+cmake -G "MinGW Makefiles" ..
+mingw32-make
+
+./bin/kanban_gui.exe
 ```
 
-#### Implementações
+## 🎮 Como Usar
 
-**MemoryRepository**
-```cpp
-template<typename T, typename Id>
-class MemoryRepository : public IRepository<T, Id> {
-    // Persistência em memória usando std::map
-    // Ideal para testes e protótipos
-    // Alta performance (O(log n) para operações)
-}
+### 🖥️ Interface Gráfica (GUI)
+
+#### 1. 🏠 Tela Inicial
+- A aplicação inicia com dados de exemplo carregados
+- Painel lateral esquerdo: lista de boards
+- Área central: visualização do board selecionado
+- Painel direito: histórico de atividades e estatísticas
+
+#### 2. 📋 Criando um Board
+1. Clique em "Criar Novo Board" no painel esquerdo
+2. Digite o nome do board
+3. Pressione Enter ou clique no botão "Criar Board"
+
+#### 3. 🗂️ Adicionando Colunas
+1. Selecione um board na lista
+2. Clique em "Adicionar Coluna" 
+3. Digite o nome da coluna (ex: "To Do", "Doing", "Done")
+
+#### 4. 🎴 Criando Cards
+1. Clique em "+ Adicionar Card" em qualquer coluna
+2. Preencha o título do card
+3. (Opcional) Adicione descrição, prioridade e tags
+
+#### 5. 🔄 Movimentando Cards
+- **Drag & Drop**: Arraste cards entre colunas
+- **Reordenação**: Use os botões ⬆️⬇️ nos cards
+- **Edição**: Duplo-clique em um card para editar
+
+#### 6. 🔍 Filtros
+- **Por Tags**: Selecione tags no combobox de filtros
+- **Por Prioridade**: Marque as prioridades desejadas
+- **Aplicar**: Clique em "Aplicar Filtros"
+- **Limpar**: Clique em "Limpar Filtros"
+
+### 💻 Interface de Linha de Comando (CLI)
+
+#### Comandos Disponíveis
+```bash
+# Criar um novo board
+create-board "Meu Projeto"
+
+# Listar todos os boards  
+list-boards
+
+# Mover card entre colunas
+move-card board_1 card_1 column_todo column_doing
+
+# Ajuda
+help
+
+# Sair
+exit
 ```
 
-**FileRepository** 
-```cpp
-template<typename T, typename Id>
-class FileRepository : public IRepository<T, Id> {
-    // Persistência em arquivo
-    // Usa RAII para gerenciamento de recursos
-    // Suporta diferentes formatos (JSON, XML, binário)
-}
+#### Exemplo de Sessão CLI
+```bash
+> create-board "Projeto POO"
+>> Board criado: 'Projeto POO' (ID: board_1)
+
+> list-boards
+*** BOARDS DISPONIVEIS ***
+==================================================
+> Projeto POO (ID: board_1) - 0 colunas
+
+> help
+Comandos disponiveis:
+  create-board <nome do board>    - Cria um novo quadro e imprime o ID
+  move-card <boardId> <cardId> <fromColumnId> <toColumnId> - Move um card entre colunas
+  list-boards                     - Lista todos os boards
+  help                            - Mostra esta ajuda
+  exit                            - Sai do programa
 ```
 
-### 4. Camada de Apresentação (Presentation Layer)
+## 📊 Conceitos POO Implementados
 
-#### CLI (Command Line Interface)
-```cpp
-class CLIView : public IView {
-    // Interface textual completa
-    // Formatação rica com cores e layouts
-    // Suporte a modo interativo e demonstração
-}
+### ✅ 1. Abstração & Encapsulamento
+- **Interfaces claras** com separação `.h`/`.cpp`
+- **Campos privados** com getters/setters controlados
+- **Exemplo**: `Card::setPriority()` com validação implícita
+
+### ✅ 2. Classes e Objetos
+- **Modelo coerente**: `Board`, `Column`, `Card`, `User`, `ActivityLog`, `Tag`
+- **Controllers**: `KanbanService`, `CLIController` 
+- **Views**: `CLIView`, `MainWindow`, `ColumnWidget`, `CardWidget`
+
+### ✅ 3. Herança & Polimorfismo
+- **Interfaces abstratas**: `IFilter`, `IRepository<T>`, `IService`, `IView`
+- **Métodos virtuais puros**: `IFilter::matches()`, `IFilter::clone()`
+- **Herança para polimorfismo**: `CLIView : public IView`
+
+### ✅ 4. Composição vs Herança
+- **Composição**: `Board` contém `Column`, `Column` contém `Card`
+- **Agregação**: `Card` possui `Tag`
+- **Herança apenas para polimorfismo**
+
+### ✅ 5. Polimorfismo Dinâmico
+- **Ponteiros polimórficos**: `KanbanService` usa `IRepository<T>`
+- **Referências polimórficas**: `CLIController` com `IView&`
+- **Interfaces sobre `dynamic_cast`**
+
+### ✅ 6. Gerenciamento de Recursos
+- **RAII**: Repositórios gerenciam próprios recursos
+- **Smart pointers**: 
+  - `std::shared_ptr<Card>` em `Column::cards_`
+  - `std::unique_ptr<KanbanService>` em `MainWindow`
+  - `std::unique_ptr<IFilter>` para cópia polimórfica
+
+### ✅ 7. Templates e STL
+- **Templates**: `MemoryRepository<T, Id>`, `IRepository<T, Id>`
+- **STL Containers**: 
+  - `std::vector` em `ActivityLog::activities_`
+  - `std::map` em `MemoryRepository::data_`
+  - `std::optional` em `Card::description_`
+
+### ✅ 8. Sobrecarga de Operadores
+- **Comparação**: `Card::operator==`, `Card::operator<`
+- **Saída**: `Card::operator<<`, `Activity::operator<<`
+- **Igualdade**: `User::operator==`, `User::operator!=`
+
+### ✅ 9. Tratamento de Exceções
+- **Exceções customizadas**: `MemoryRepositoryException`
+- **Validações**: `KanbanService::validateBoardExists()`
+- **Captura adequada**: Try-catch global em `main.cpp`
+
+### ✅ 10. Documentação Técnica
+- **Diagrama de Classes UML** completo
+- **Documentação Doxygen** em todos os headers
+- **README** com instruções detalhadas
+
+### ✅ 11. Build Automatizado
+- **CMake** multiplataforma configurado
+- **Dependências declaradas**: Qt6, C++17
+
+## 🎥 Demonstração
+
+### 📹 Vídeo de Demonstração
+**Duração**: 2 minutos 45 segundos  
+**Link**: [Assistir Demonstração](https://github.com/seu-usuario/KanbanSystem-lite/demo/video_demonstracao.mp4)
+
+### 🎯 Conteúdo Demonstrado
+1. **Inicialização** da aplicação GUI
+2. **Criação** de board e colunas
+3. **Gestão** de cards com tags e prioridades
+4. **Movimentação** via drag & drop
+5. **Reordenação** interna de cards
+6. **Aplicação** de filtros avançados
+7. **Visualização** do histórico de atividades
+8. **Demonstração** da interface CLI
+9. **Estatísticas** em tempo real
+
+## 🏷️ Versão
+
+### 📌 Versão Atual
+- **Tag**: `v3.0-final`
+- **Data**: 06/10/2025
+- **Status**: Entrega Final
+
+### 🔗 Acesso à Versão
+```bash
+git clone https://github.com/seu-usuario/KanbanSystem-lite.git
+cd KanbanSystem-lite
+git checkout v3.0-final
 ```
 
-#### GUI (Graphical User Interface)
+## 📁 Estrutura do Projeto
 
-**MainWindow**
-```cpp
-class MainWindow : public QMainWindow {
-    // Janela principal da aplicação
-    // Layout com painéis laterais e área central
-    // Sistema completo de filtros e estatísticas
-}
+```
+KanbanSystem-lite/
+├── design/                          # Código fonte principal
+│   ├── include/                     # Headers organizados por camada
+│   │   ├── domain/                  # Entidades de domínio
+│   │   │   ├── Board.h
+│   │   │   ├── Column.h
+│   │   │   ├── Card.h
+│   │   │   ├── User.h
+│   │   │   ├── ActivityLog.h
+│   │   │   └── Tag.h
+│   │   ├── interfaces/              # Interfaces abstratas
+│   │   │   ├── IService.h
+│   │   │   ├── IView.h
+│   │   │   ├── IRepository.h
+│   │   │   └── IFilter.h
+│   │   ├── application/             # Camada de aplicação
+│   │   │   ├── KanbanService.h
+│   │   │   ├── CLIView.h
+│   │   │   └── CLIController.h
+│   │   ├── persistence/             # Camada de persistência
+│   │   │   ├── MemoryRepository.h
+│   │   │   ├── MemoryRepositoryImpl.h
+│   │   │   └── FileRepository.h
+│   │   └── gui/                     # Interface gráfica
+│   │       ├── MainWindow.h
+│   │       ├── ColumnWidget.h
+│   │       ├── CardWidget.h
+│   │       └── CardDialog.h
+│   ├── src/                         # Implementações
+│   │   ├── domain/                  # Implementações do domínio
+│   │   │   ├── Board.cpp
+│   │   │   ├── Column.cpp
+│   │   │   ├── Card.cpp
+│   │   │   ├── User.cpp
+│   │   │   └── ActivityLog.cpp
+│   │   ├── application/             # Implementações da aplicação
+│   │   │   ├── KanbanService.cpp
+│   │   │   ├── CLIView.cpp
+│   │   │   ├── CLIController.cpp
+│   │   │   └── main.cpp
+│   │   ├── persistence/             # Implementações de persistência
+│   │   │   └── MemoryRepository.cpp
+│   │   └── gui/                     # Implementações da GUI
+│   │       ├── MainWindow.cpp
+│   │       ├── ColumnWidget.cpp
+│   │       ├── CardWidget.cpp
+│   │       ├── CardDialog.cpp
+│   │       └── main_gui.cpp
+│   └── CMakeLists.txt               # Configuração de build
+├── tests/                           # Testes unitários
+│   └── compile_test.cpp
+├── docs/                            # Documentação adicional
+│   ├── uml/                         # Diagramas UML
+│   │   ├── diagram.md
+│   │   ├── uml.png
+│   │   └── uml.svg
+│   └── relatorio_tecnico.pdf        # Relatório técnico completo
+├── demo/                            # Materiais de demonstração
+│   └── video_demonstracao.mp4       # Vídeo de demonstração
+└── README.md                        # Este arquivo
 ```
 
-**ColumnWidget**
-```cpp
-class ColumnWidget : public QFrame {
-    // Representação visual de uma coluna
-    // Suporte a drag & drop de cards
-    // Área rolável com indicadores de posição
-}
-```
+## 🤝 Contribuição
 
-**CardWidget** 
-```cpp
-class CardWidget : public QWidget {
-    // Cartão visual com informações completas
-    // Drag & drop com preview
-    // Edição in-place via double-click
-}
-```
+Contribuições são bem-vindas! Para contribuir:
 
-## 🔧 Padrões de Design Implementados
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-### 1. Repository Pattern
-**Problema**: Diferentes estratégias de persistência com mesma interface
-**Solução**: Template `IRepository<T>` com implementações específicas
-```cpp
-// Uso consistente independente da implementação
-boardRepository_.add(board);
-columnRepository_.findById(columnId);
-```
+## 📄 Licença
 
-### 2. Service Layer Pattern  
-**Problema**: Operações complexas envolvendo múltiplas entidades
-**Solução**: `KanbanService` como fachada orquestradora
-```cpp
-// Operação atômica com validações
-service.moveCard(boardId, cardId, fromColumnId, toColumnId);
-```
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
-### 3. Strategy Pattern
-**Problema**: Diferentes algoritmos de filtragem
-**Solução**: Interface `IFilter` com implementações polimórficas
-```cpp
-class IFilter {
-    virtual bool matches(const Card& card) const = 0;
-    virtual std::unique_ptr<IFilter> clone() const = 0;
-};
-```
+## 👨‍💻 Autor
 
-### 4. Observer Pattern
-**Problema**: Atualização automática da UI em resposta a mudanças
-**Solução**: Sinais e slots do Qt conectando modelo e vista
-```cpp
-// GUI reage automaticamente a mudanças
-connect(columnWidget, &ColumnWidget::cardMoved, 
-        this, &MainWindow::onCardMoved);
-```
+**Seu Nome**  
+- Email: seu.email@example.com  
+- GitHub: [seu-usuario](https://github.com/seu-usuario)
 
-### 5. Factory Method Pattern
-**Problema**: Criação polimórfica de objetos
-**Solução**: Método `clone()` em interfaces
-```cpp
-// Cópia polimórfica de filtros
-auto filterCopy = filter->clone();
-```
+## 🔗 Links
 
-## 🎯 Princípios SOLID Aplicados
-
-### Single Responsibility Principle (SRP)
-- `Board`: Gerenciar colunas e movimentação de cards
-- `Column`: Manter ordem e posicionamento de cards  
-- `Card`: Representar tarefa com atributos
-- `KanbanService`: Orquestrar operações do sistema
-- `CLIView`: Renderizar saída textual
-
-### Open/Closed Principle (OCP)
-```cpp
-// Aberto para extensão
-class PriorityFilter : public IFilter {
-    bool matches(const Card& card) const override;
-};
-
-// Fechado para modificação
-void applyFilters(const std::vector<std::unique_ptr<IFilter>>& filters);
-```
-
-### Liskov Substitution Principle (LSP)
-```cpp
-// Qualquer IRepository pode substituir outra
-IRepository<Board>* repo = new MemoryRepository<Board>();
-IRepository<Board>* repo = new FileRepository<Board>(); // Comportamento idêntico
-```
-
-### Interface Segregation Principle (ISP)
-```cpp
-// Interfaces específicas e focadas
-class IRepository { /* apenas CRUD */ };
-class IService { /* operações de negócio */ };
-class IView { /* renderização */ };
-```
-
-### Dependency Inversion Principle (DIP)
-```cpp
-// Domínio não depende de implementações
-class KanbanService {
-    // Depende de IRepository, não de MemoryRepository/FileRepository
-};
-```
-
-## 🧠 Decisões de Arquitetura Críticas
-
-### 1. Composição vs Herança
-
-**Composição Preferida**:
-```cpp
-class Board {
-private:
-    std::vector<std::shared_ptr<Column>> columns_;  // Composição forte
-    std::shared_ptr<ActivityLog> activityLog_;      // Agregação fraca
-};
-```
-
-**Justificativa**:
-- Flexibilidade para alterar relacionamentos
-- Evita hierarquias de herança rígidas
-- Melhor testabilidade e manutenção
-
-**Herança Aplicada Corretamente**:
-```cpp
-// Para polimorfismo real de interfaces
-class IRepository { /* interface */ };
-class MemoryRepository : public IRepository { /* implementação */ };
-
-// Para extensão de framework
-class MainWindow : public QMainWindow { /* especialização */ };
-```
-
-### 2. Gerenciamento de Memória com Smart Pointers
-
-**std::shared_ptr para Ownership Compartilhado**:
-```cpp
-// Quando múltiplos donos fazem sentido
-auto card = std::make_shared<Card>(id, title);
-column->addCard(card);      // Column tem referência
-cardRepository_.add(card);  // Repository tem referência
-```
-
-**std::unique_ptr para Ownership Exclusivo**:
-```cpp
-// Quando há um único dono claro
-std::unique_ptr<KanbanService> service_;
-auto filter = std::make_unique<PriorityFilter>();
-```
-
-**Justificativa**:
-- Eliminação de memory leaks
-- Semântica de ownership clara
-- Destruição automática com RAII
-
-### 3. Sistema de Tipos com Templates
-
-**Repository Genérico**:
-```cpp
-template<typename T, typename Id>
-class IRepository {
-    // Type-safe para qualquer entidade
-    // Compile-time polymorphism
-};
-```
-
-**Instanciações Explícitas**:
-```cpp
-template class MemoryRepository<Board>;
-template class MemoryRepository<Column>;
-template class MemoryRepository<Card>;
-```
-
-### 4. Tratamento de Erros com Exceções
-
-**Hierarquia de Exceções**:
-```cpp
-class MemoryRepositoryException : public std::runtime_error;
-class FileRepositoryException : public std::runtime_error;
-```
-
-**Estratégia Mista**:
-```cpp
-// Exceções para condições excepcionais
-void add(const std::shared_ptr<T>& item) {
-    if (exists(item->id())) {
-        throw MemoryRepositoryException("ID duplicado");
-    }
-}
-
-// std::optional para casos normais de "não encontrado"
-std::optional<std::shared_ptr<T>> findById(const Id& id) const;
-```
-
-## 🔄 Fluxos de Dados Principais
-
-### 1. Criação de Board
-```
-Usuário → MainWindow → KanbanService → BoardRepository → Board
-                                      → ActivityLog
-```
-
-### 2. Movimentação de Card
-```
-Drag & Drop → ColumnWidget → MainWindow → KanbanService → Board
-                                                         → Column (origem)
-                                                         → Column (destino)  
-                                                         → ActivityLog
-```
-
-### 3. Aplicação de Filtros
-```
-UI Controls → MainWindow → ColumnWidget::refreshCards() → CardWidget::applyFilter()
-```
-
-### 4. Persistência em Memória
-```
-KanbanService → MemoryRepository<T> → std::map<Id, std::shared_ptr<T>>
-```
-
-## 🎨 Design da Interface de Usuário
-
-### Arquitetura GUI
-```
-MainWindow
-├── Left Panel (Boards e Controles)
-├── Central Area (TabWidget com Columns)
-└── Right Panel (Atividades e Estatísticas)
-```
-
-### Sistema de Drag & Drop
-**MimeData Personalizado**:
-```cpp
-// Dados ricos para operações complexas
-mimeData->setData("application/x-card-id", cardId);
-mimeData->setData("application/x-from-column", sourceColumnId);
-mimeData->setData("application/x-card-title", cardTitle);
-```
-
-**Feedback Visual**:
-- Indicadores de posição durante drag
-- Highlight de colunas de destino
-- Preview do card sendo arrastado
-
-### Filtros em Tempo Real
-**Predicate-based Filtering**:
-```cpp
-columnWidget->refreshCards([this](auto card) {
-    return cardMatchesFilter(card);
-});
-```
-
-**Filtros Combináveis**:
-- Por tags (combobox com autocomplete)
-- Por prioridade (checkboxes múltiplas)
-- Sistema de estado mantido entre navegações
-
-## ⚡ Considerações de Performance
-
-### Otimizações Implementadas
-
-**Move Semantics**:
-```cpp
-void ActivityLog::add(Activity act) {  // Passagem por valor + move
-    activities_.push_back(std::move(act));
-}
-```
-
-**Lookup Eficiente**:
-```cpp
-std::map<Id, std::shared_ptr<T>> data_;  // O(log n) para operações
-```
-
-**Atualização Seletiva**:
-```cpp
-void refreshSpecificColumns(const std::string& fromId, const std::string& toId);
-// Atualiza apenas colunas envolvidas em movimentação
-```
-
-### Trade-offs Aceitáveis
-
-**shared_ptr Overhead**: Aceito em troca de segurança e flexibilidade
-**Cópias de Vetores**: Preferido sobre referências em alguns casos para segurança
-**Dynamic Dispatch**: Necessário para polimorfismo real de interfaces
-
-## 🔍 Testabilidade
-
-### Design para Testes
-
-**Injeção de Dependências**:
-```cpp
-class KanbanService {
-    // Repositórios podem ser mockados para testes
-    MemoryRepository<Board> boardRepository_;
-    MemoryRepository<Column> columnRepository_;
-};
-```
-
-**Interfaces para Mocking**:
-```cpp
-// Testes podem implementar IRepository com dados controlados
-class MockRepository : public IRepository<Board> {
-    // Implementação controlada para testes
-};
-```
-
-**Separação Clara**:
-- Domínio testável sem dependências externas
-- Lógica de apresentação testável separadamente
-- Serviços testáveis com repositórios mockados
-
-## 🚀 Estratégia de Extensibilidade
-
-### Pontos de Extensão
-
-**Novos Repositórios**:
-```cpp
-class DatabaseRepository : public IRepository<T> {
-    // Nova estratégia de persistência sem alterar outras camadas
-};
-```
-
-**Novos Filtros**:
-```cpp
-class DateFilter : public IFilter {
-    // Novo critério de filtragem
-    bool matches(const Card& card) const override;
-};
-```
-
-**Novas Views**:
-```cpp
-class WebView : public IView {
-    // Nova interface (web) implementando contrato existente
-};
-```
-
-### Princípios para Evolução
-
-**Open/Closed**: Novas funcionalidades via extensão, não modificação
-**Interface Segregation**: Novas interfaces para novas responsabilidades  
-**Dependency Injection**: Novas implementações injetáveis sem alterar clientes
-
-## 📊 Métricas de Qualidade de Design
-
-### Acoplamento
-- **Baixo acoplamento** entre camadas via interfaces
-- **Acoplamento temporal** minimizado com operações atômicas
-- **Acoplamento de dados** controlado com DTOs implícitos
-
-### Coesão
-- **Alta coesão** dentro de cada camada
-- **Coesão funcional** em serviços especializados
-- **Coesão sequencial** em fluxos de trabalho
-
-### Complexidade
-- **Complexidade ciclomática** reduzida com early returns
-- **Complexidade de integração** minimizada com APIs claras
-- **Complexidade cognitiva** gerenciada com responsabilidades bem definidas
-
-## 🔮 Roadmap de Evolução Arquitetural
-
-### Melhorias Planejadas
-
-**Persistência Avançada**:
-```cpp
-class DatabaseRepository : public IRepository<T> {
-    // Suporte a bancos de dados relacionais
-};
-
-class CloudRepository : public IRepository<T> {
-    // Sincronização com serviços em nuvem
-};
-```
-
-**Sistema de Plugins**:
-```cpp
-class IPlugin {
-    virtual void initialize(KanbanService& service) = 0;
-    virtual std::string getName() const = 0;
-};
-```
-
-**APIs de Integração**:
-```cpp
-class RESTAPI {
-    // Exposição do sistema como serviço web
-    // Suporte a clientes externos
-};
-```
-
-### Considerações para Escala
-
-**Cache de Dados**: Implementação de cache L1/L2 para performance
-**Operações Assíncronas**: Suporte a operações não-bloqueantes
-**Sharding**: Estratégias para múltiplos boards de grande escala
+- **Repositório**: [https://github.com/seu-usuario/KanbanSystem-lite](https://github.com/seu-usuario/KanbanSystem-lite)
+- **Issues**: [https://github.com/seu-usuario/KanbanSystem-lite/issues](https://github.com/seu-usuario/KanbanSystem-lite/issues)
+- **Releases**: [https://github.com/seu-usuario/KanbanSystem-lite/releases](https://github.com/seu-usuario/KanbanSystem-lite/releases)
 
 ---
 
-Este design representa uma arquitetura madura e bem fundamentada que equilibra princípios acadêmicos com necessidades práticas de desenvolvimento, resultando em um sistema robusto, maintainable e preparado para evolução futura.
+**🎓 Desenvolvido para o Trabalho de Programação Orientada a Objetos - Etapa 3**  
+**📅 Entrega: 06/10/2025**  
+**⭐ Se este projeto foi útil, deixe uma estrela no repositório!**

@@ -443,10 +443,6 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ---
 
-<div align="center">
-
 **🎓 Desenvolvido para o Trabalho de Programação Orientada a Objetos - Etapa 3**  
 **📅 Entrega: 06/10/2025**  
 **⭐ Se este projeto foi útil, deixe uma estrela no repositório!**
-
-</div>
