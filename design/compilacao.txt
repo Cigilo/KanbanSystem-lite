@@ -1,5 +1,5 @@
 # ==================================================
-# INSTRUcÕES DE COMPILAcÃO - KANBAN SYSTEM LITE
+# INSTRUÇÕES DE COMPILAÇÃO - KANBAN SYSTEM LITE
 # ==================================================
 
 # AMBIENTE: MSYS2 MinGW 64-bit
@@ -7,7 +7,7 @@
 # CMAKE: 4.1.1
 
 # =======================
-# 1. CONFIGURAcÃO INICIAL
+# 1. CONFIGURAÇÃO INICIAL
 # =======================
 
 # Navegar para o diretório do projeto
@@ -37,7 +37,7 @@ cmake .. -G "MSYS Makefiles"
 # -- Build type: Debug
 # -- C++ compiler: C:/msys64/mingw64/bin/c++.exe
 # -- C++ standard: 17
-# -- ✅ Configuracão CMake concluída!
+# -- ✅ Configuração CMake concluída!
 # -- 👉 Para compilar: cmake --build .
 # -- 👉 Para executar: ./compile_test
 
@@ -45,7 +45,7 @@ cmake .. -G "MSYS Makefiles"
 # 3. COMPILAR PROJETO
 # =======================
 
-# Opcão 1: Usar CMake para compilar
+# Opção 1: Usar CMake para compilar
 cmake --build .
 
 # SAÍDA ESPERADA:
@@ -53,16 +53,15 @@ cmake --build .
 # [100%] Linking CXX executable compile_test.exe
 # [100%] Built target compile_test
 
-# Opcão 2: Usar make diretamente
+# Opção 2: Usar make diretamente
 make
 
 # =======================
 # 4. EXECUTAR TESTE
 # =======================
 
-# Executar teste de compilacão
+# Executar teste de compilação
 ./compile_test
-./kanban_cli
 
 # SAÍDA ESPERADA:
 # Headers included successfully
@@ -70,7 +69,7 @@ make
 # [aguardando input]
 
 # =======================
-# 5. COMPILAcÃO ALTERNATIVA (EMERGÊNCIA)
+# 5. COMPILAÇÃO ALTERNATIVA (EMERGÊNCIA)
 # =======================
 
 # Se o CMake falhar, compilar diretamente com g++:
@@ -79,7 +78,7 @@ g++ -std=c++17 -I include tests/compile_test.cpp -o compile_test
 ./compile_test
 
 # =======================
-# 6. COMANDOS DE VERIFICAcÃO
+# 6. COMANDOS DE VERIFICAÇÃO
 # =======================
 
 # Verificar versões das ferramentas:
@@ -124,10 +123,10 @@ rm -f compile_test compile_test.exe
 # ==================================================
 
 # 1. Implementar arquivos .cpp para as classes do domínio
-# 2. Desenvolver KanbanService (implementacão de IService)
+# 2. Desenvolver KanbanService (implementação de IService)
 # 3. Criar CLI baseado em IView
 # 4. Implementar FileRepository
-# 5. Adicionar operacões CRUD completas
+# 5. Adicionar operações CRUD completas
 
 # ==================================================
 # AUTORES: jp
@@ -135,25 +134,25 @@ rm -f compile_test compile_test.exe
 # ==================================================
 
 
-Eu preciso que voce faca a etapa 2 do projeto 
+Eu preciso que voce faça a etapa 2 do projeto 
 
 relembrando 
 
 Etapa 2 — Primeiro teste em terminal (CLI)
-● Entrega: ate 02/10/2025 23h59
+● Entrega: até 02/10/2025 23h59
 ● 4 pontos
 ● O que entregar
-  ○ Implementacão mínima funcional em modo texto (sem GUI obrigatória), com:
+  ○ Implementação mínima funcional em modo texto (sem GUI obrigatória), com:
     ■ Build funcional (cmake --build .).
-    ■ Executável CLI que demonstra operacões-chave (ex.: para MP3
+    ■ Executável CLI que demonstra operações-chave (ex.: para MP3
     Player: listar arquivos, criar playlist, simular play; para SVG editor:
     criar polígonos via coordenadas, salvar arquivo; para Agenda: criar
     evento, listar eventos; para Kanban: criar quadro/lista/cartão).
-        ■ README com instrucões para rodar os testes CLI.
+        ■ README com instruções para rodar os testes CLI.
 ● Objetivo
   ○ Mostrar que o domínio e a lógica estão implementados e que as classes
   funcionam independentemente da GUI.
-● Criterios de aceitacão mínimos
-  ○ CLI executa em uma opcão o teste das principais funcionalidades com saída
-  prevista; código usa smart pointers e STL adequadamente; excecões
+● Critérios de aceitação mínimos
+  ○ CLI executa em uma opção o teste das principais funcionalidades com saída
+  prevista; código usa smart pointers e STL adequadamente; exceções
   tratadas.

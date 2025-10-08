@@ -69,13 +69,34 @@ include CMakeFiles/kanban_cli.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kanban_cli.dir/flags.make
 
+kanban_cli_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/moc.exe
+kanban_cli_autogen/timestamp: C:/msys64/mingw64/share/qt6/bin/uic.exe
+kanban_cli_autogen/timestamp: CMakeFiles/kanban_cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target kanban_cli"
+	/C/msys64/mingw64/bin/cmake.exe -E cmake_autogen C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli_autogen.dir/AutogenInfo.json Debug
+	/C/msys64/mingw64/bin/cmake.exe -E touch C:/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/timestamp
+
 CMakeFiles/kanban_cli.dir/codegen:
 .PHONY : CMakeFiles/kanban_cli.dir/codegen
+
+CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
+CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj: kanban_cli_autogen/mocs_compilation.cpp
+CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj"
+	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj -MF CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj.d -o CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/mocs_compilation.cpp
+
+CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.i"
+	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/mocs_compilation.cpp > CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.s"
+	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/build/kanban_cli_autogen/mocs_compilation.cpp -o CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
 CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/main.cpp
 CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj"
 	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/main.cpp
 
 CMakeFiles/kanban_cli.dir/src/application/main.cpp.i: cmake_force
@@ -86,157 +107,32 @@ CMakeFiles/kanban_cli.dir/src/application/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/application/main.cpp.s"
 	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/main.cpp -o CMakeFiles/kanban_cli.dir/src/application/main.cpp.s
 
-CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Card.cpp
-CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Card.cpp
-
-CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Card.cpp > CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Card.cpp -o CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Column.cpp
-CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Column.cpp
-
-CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Column.cpp > CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Column.cpp -o CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/ActivityLog.cpp
-CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/ActivityLog.cpp
-
-CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/ActivityLog.cpp > CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/ActivityLog.cpp -o CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Board.cpp
-CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Board.cpp
-
-CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Board.cpp > CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/Board.cpp -o CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/persistence/MemoryRepository.cpp
-CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/persistence/MemoryRepository.cpp
-
-CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/persistence/MemoryRepository.cpp > CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/persistence/MemoryRepository.cpp -o CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/User.cpp
-CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/User.cpp
-
-CMakeFiles/kanban_cli.dir/src/domain/User.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/domain/User.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/User.cpp > CMakeFiles/kanban_cli.dir/src/domain/User.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/domain/User.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/domain/User.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/domain/User.cpp -o CMakeFiles/kanban_cli.dir/src/domain/User.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/KanbanService.cpp
-CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/KanbanService.cpp
-
-CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/KanbanService.cpp > CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/KanbanService.cpp -o CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.s
-
-CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj: CMakeFiles/kanban_cli.dir/flags.make
-CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj: C:/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIView.cpp
-CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj: CMakeFiles/kanban_cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj -MF CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj.d -o CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj -c /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIView.cpp
-
-CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.i"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIView.cpp > CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.i
-
-CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.s"
-	/C/msys64/mingw64/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /C/Users/jp/Desktop/KanbanSystem-lite/design/src/application/CLIView.cpp -o CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.s
-
 # Object files for target kanban_cli
 kanban_cli_OBJECTS = \
-"CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj" \
-"CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj"
+"CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj" \
+"CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj"
 
 # External object files for target kanban_cli
 kanban_cli_EXTERNAL_OBJECTS =
 
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj
-kanban_cli.exe: CMakeFiles/kanban_cli.dir/build.make
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable kanban_cli.exe"
+bin/kanban_cli.exe: CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj
+bin/kanban_cli.exe: CMakeFiles/kanban_cli.dir/src/application/main.cpp.obj
+bin/kanban_cli.exe: CMakeFiles/kanban_cli.dir/build.make
+bin/kanban_cli.exe: libkanban_common.a
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bin/kanban_cli.exe"
 	/C/msys64/mingw64/bin/cmake.exe -E rm -f CMakeFiles/kanban_cli.dir/objects.a
 	/C/msys64/mingw64/bin/ar.exe qc CMakeFiles/kanban_cli.dir/objects.a $(kanban_cli_OBJECTS) $(kanban_cli_EXTERNAL_OBJECTS)
-	/C/msys64/mingw64/bin/c++.exe -g -Wl,--whole-archive CMakeFiles/kanban_cli.dir/objects.a -Wl,--no-whole-archive -o kanban_cli.exe -Wl,--out-implib,libkanban_cli.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+	/C/msys64/mingw64/bin/c++.exe -g -Wl,--whole-archive CMakeFiles/kanban_cli.dir/objects.a -Wl,--no-whole-archive -o bin/kanban_cli.exe -Wl,--out-implib,libkanban_cli.dll.a -Wl,--major-image-version,0,--minor-image-version,0  libkanban_common.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 
 # Rule to build all files generated by this target.
-CMakeFiles/kanban_cli.dir/build: kanban_cli.exe
+CMakeFiles/kanban_cli.dir/build: bin/kanban_cli.exe
 .PHONY : CMakeFiles/kanban_cli.dir/build
 
 CMakeFiles/kanban_cli.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/kanban_cli.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/kanban_cli.dir/clean
 
-CMakeFiles/kanban_cli.dir/depend:
+CMakeFiles/kanban_cli.dir/depend: kanban_cli_autogen/timestamp
 	$(CMAKE_COMMAND) -E cmake_depends "MSYS Makefiles" /C/Users/jp/Desktop/KanbanSystem-lite/design /C/Users/jp/Desktop/KanbanSystem-lite/design /C/Users/jp/Desktop/KanbanSystem-lite/design/build /C/Users/jp/Desktop/KanbanSystem-lite/design/build /C/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/kanban_cli.dir/depend
 

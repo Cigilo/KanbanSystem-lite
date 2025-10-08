@@ -241,5 +241,9 @@ void Board::clear() noexcept {
     activityLog_ = nullptr;
 }
 
+void Board::setColumns(const std::vector<std::shared_ptr<Column>>& columns) {
+    columns_ = columns;
+}
+
 } // namespace domain
 } // namespace kanban

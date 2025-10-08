@@ -1,5 +1,6 @@
 #include "application/KanbanService.h"
 #include "application/CLIView.h"
+#include "application/CLIController.h"
 #include "domain/Board.h"
 #include "domain/Column.h"  
 #include "domain/Card.h"
@@ -10,6 +11,7 @@
 #include <thread>
 #include <chrono>
 #include <memory>
+#include <sstream>
 
 // ============================================================================
 // DEMONSTRAcaO DE SMART POINTERS E STL
@@ -336,6 +338,11 @@ int main() {
         
         // Executar demonstracao completa
         demonstrateKanbanOperations(service, view);
+
+        // Delegar o modo interativo para CLIController (separação de responsabilidades)
+        // Criar e executar o controller interativo
+        kanban::application::CLIController controller(service, view);
+        controller.run();
 
         // Mensagem final
         std::cout << "\n" << std::string(70, '=') << std::endl;

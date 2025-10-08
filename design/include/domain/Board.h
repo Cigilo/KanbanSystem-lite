@@ -208,6 +208,12 @@ public:
      */
     void clear() noexcept;
 
+    /**
+     * @brief Define uma nova ordem para as colunas
+     * @param columns Novo vetor de colunas na ordem desejada
+     */
+    void setColumns(const std::vector<std::shared_ptr<Column>>& columns);
+
 private:
     Id id_;                                  ///< @brief Identificador único do board
     std::string name_;                       ///< @brief Nome descritivo do board

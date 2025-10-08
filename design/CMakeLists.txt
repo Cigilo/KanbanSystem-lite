@@ -1,10 +1,18 @@
-cmake_minimum_required(VERSION 3.15)
-project(KanbanSystem VERSION 1.0.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.16)
+project(KanbanSystem VERSION 3.0.0 LANGUAGES CXX)
 
-# Configuracão do padrão C++
+# Configuração do padrão C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Buscar pacotes do Qt6
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
+
+# Ativar MOC automático
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 # Configurar modo de build
 if(NOT CMAKE_BUILD_TYPE)
@@ -17,53 +25,71 @@ message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
 # Incluir diretórios de headers
 include_directories(include)
 
-# Diretório de código fonte
-set(SRC_DIR src)
-
-# Arquivos fonte - REMOVA A LINHA DUPLICADA DO main.cpp
-set(SRC_FILES
-    ${SRC_DIR}/domain/Card.cpp
-    ${SRC_DIR}/domain/Column.cpp
-    ${SRC_DIR}/domain/ActivityLog.cpp 
-    ${SRC_DIR}/domain/Board.cpp 
-    ${SRC_DIR}/persistence/MemoryRepository.cpp
-    ${SRC_DIR}/domain/User.cpp
-    ${SRC_DIR}/application/KanbanService.cpp
-    ${SRC_DIR}/application/CLIView.cpp 
-    # REMOVA ESTA LINHA: ${SRC_DIR}/src/application/main.cpp ← DUPLICADO!
+# Arquivos fonte comuns (sem main)
+set(COMMON_SOURCES
+    src/domain/Card.cpp
+    src/domain/Column.cpp
+    src/domain/ActivityLog.cpp
+    src/domain/Board.cpp
+    src/domain/User.cpp
+    src/persistence/MemoryRepository.cpp
+    src/application/KanbanService.cpp
+    src/application/CLIView.cpp
+    src/application/CLIController.cpp
 )
 
-# Criar executável - APENAS UMA REFERÊNCIA AO main.cpp
-add_executable(kanban_cli
-    ${SRC_DIR}/application/main.cpp  # APENAS ESTA REFERÊNCIA
-    ${SRC_FILES}
+# Arquivos fonte da GUI
+set(GUI_SOURCES
+    src/gui/main_gui.cpp
+    src/gui/MainWindow.cpp
+    src/gui/ColumnWidget.cpp    # ADICIONE
+    src/gui/CardWidget.cpp      # ADICIONE
+    src/gui/CardDialog.cpp
 )
 
-# Propriedades do target
-set_target_properties(kanban_cli PROPERTIES
+
+# Criar biblioteca comum
+add_library(kanban_common STATIC ${COMMON_SOURCES})
+
+# Executável CLI
+add_executable(kanban_cli src/application/main.cpp)
+target_link_libraries(kanban_cli kanban_common)
+
+# Executável GUI - INCLUA OS HEADERS PARA MOC
+add_executable(kanban_gui 
+    ${GUI_SOURCES}
+    include/gui/MainWindow.h  # INCLUA OS HEADERS PARA MOC
+    include/gui/ColumnWidget.h  # ADICIONE
+    include/gui/CardWidget.h    # ADICIONE
+    include/gui/CardDialog.h
+)
+target_link_libraries(kanban_gui kanban_common Qt6::Core Qt6::Widgets)
+
+# Configurações de compiler
+if(MSVC)
+    target_compile_options(kanban_cli PRIVATE /W4 /permissive-)
+    target_compile_options(kanban_gui PRIVATE /W4 /permissive-)
+else()
+    target_compile_options(kanban_cli PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(kanban_gui PRIVATE -Wall -Wextra -pedantic)
+endif()
+
+# Propriedades dos targets
+set_target_properties(kanban_cli kanban_gui PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
 )
 
-# Configuracões específicas para Windows/MSYS
-if(WIN32)
-    if(CMAKE_CXX_COMPILER MATCHES ".*mingw.*")
-        target_compile_definitions(kanban_cli PRIVATE _WIN32_WINNT=0x0601)
-    endif()
-    
-    if(MSVC)
-        target_compile_options(kanban_cli PRIVATE /W4 /permissive-)
-    else()
-        target_compile_options(kanban_cli PRIVATE -Wall -Wextra -pedantic)
-    endif()
-else()
-    target_compile_options(kanban_cli PRIVATE -Wall -Wextra -pedantic)
-endif()
+# Configurar saída dos executáveis
+set_target_properties(kanban_cli kanban_gui PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
 
 # Mensagem de sucesso
 message(STATUS " ")
-message(STATUS "✅ Configuracão CMake concluída!")
+message(STATUS "✅ Configuração CMake concluída!")
 message(STATUS "👉 Para compilar: cmake --build .")
-message(STATUS "👉 Para executar: ./kanban_cli")
+message(STATUS "👉 CLI: ./bin/kanban_cli")
+message(STATUS "👉 GUI: ./bin/kanban_gui")
 message(STATUS " ")

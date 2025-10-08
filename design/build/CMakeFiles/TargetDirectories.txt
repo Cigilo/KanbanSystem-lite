@@ -1,3 +1,11 @@
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common.dir
 C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui.dir
 C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/edit_cache.dir
 C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/rebuild_cache.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common_autogen_timestamp_deps.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_common_autogen.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli_autogen_timestamp_deps.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_cli_autogen.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui_autogen_timestamp_deps.dir
+C:/Users/jp/Desktop/KanbanSystem-lite/design/build/CMakeFiles/kanban_gui_autogen.dir

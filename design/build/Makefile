@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named kanban_common
+
+# Build rule for target.
+kanban_common: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_common
+.PHONY : kanban_common
+
+# fast build rule for target.
+kanban_common/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/build
+.PHONY : kanban_common/fast
+
+#=============================================================================
 # Target rules for targets named kanban_cli
 
 # Build rule for target.
@@ -129,12 +142,199 @@ kanban_cli/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/build
 .PHONY : kanban_cli/fast
 
+#=============================================================================
+# Target rules for targets named kanban_gui
+
+# Build rule for target.
+kanban_gui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_gui
+.PHONY : kanban_gui
+
+# fast build rule for target.
+kanban_gui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/build
+.PHONY : kanban_gui/fast
+
+#=============================================================================
+# Target rules for targets named kanban_common_autogen_timestamp_deps
+
+# Build rule for target.
+kanban_common_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_common_autogen_timestamp_deps
+.PHONY : kanban_common_autogen_timestamp_deps
+
+# fast build rule for target.
+kanban_common_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common_autogen_timestamp_deps.dir/build.make CMakeFiles/kanban_common_autogen_timestamp_deps.dir/build
+.PHONY : kanban_common_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named kanban_common_autogen
+
+# Build rule for target.
+kanban_common_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_common_autogen
+.PHONY : kanban_common_autogen
+
+# fast build rule for target.
+kanban_common_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common_autogen.dir/build.make CMakeFiles/kanban_common_autogen.dir/build
+.PHONY : kanban_common_autogen/fast
+
+#=============================================================================
+# Target rules for targets named kanban_cli_autogen_timestamp_deps
+
+# Build rule for target.
+kanban_cli_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_cli_autogen_timestamp_deps
+.PHONY : kanban_cli_autogen_timestamp_deps
+
+# fast build rule for target.
+kanban_cli_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli_autogen_timestamp_deps.dir/build.make CMakeFiles/kanban_cli_autogen_timestamp_deps.dir/build
+.PHONY : kanban_cli_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named kanban_cli_autogen
+
+# Build rule for target.
+kanban_cli_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_cli_autogen
+.PHONY : kanban_cli_autogen
+
+# fast build rule for target.
+kanban_cli_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli_autogen.dir/build.make CMakeFiles/kanban_cli_autogen.dir/build
+.PHONY : kanban_cli_autogen/fast
+
+#=============================================================================
+# Target rules for targets named kanban_gui_autogen_timestamp_deps
+
+# Build rule for target.
+kanban_gui_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_gui_autogen_timestamp_deps
+.PHONY : kanban_gui_autogen_timestamp_deps
+
+# fast build rule for target.
+kanban_gui_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui_autogen_timestamp_deps.dir/build.make CMakeFiles/kanban_gui_autogen_timestamp_deps.dir/build
+.PHONY : kanban_gui_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named kanban_gui_autogen
+
+# Build rule for target.
+kanban_gui_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kanban_gui_autogen
+.PHONY : kanban_gui_autogen
+
+# fast build rule for target.
+kanban_gui_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui_autogen.dir/build.make CMakeFiles/kanban_gui_autogen.dir/build
+.PHONY : kanban_gui_autogen/fast
+
+kanban_cli_autogen/mocs_compilation.obj: kanban_cli_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_cli_autogen/mocs_compilation.obj
+
+# target to build an object file
+kanban_cli_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_cli_autogen/mocs_compilation.cpp.obj
+
+kanban_cli_autogen/mocs_compilation.i: kanban_cli_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_cli_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+kanban_cli_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_cli_autogen/mocs_compilation.cpp.i
+
+kanban_cli_autogen/mocs_compilation.s: kanban_cli_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_cli_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+kanban_cli_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/kanban_cli_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_cli_autogen/mocs_compilation.cpp.s
+
+kanban_common_autogen/mocs_compilation.obj: kanban_common_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_common_autogen/mocs_compilation.obj
+
+# target to build an object file
+kanban_common_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/kanban_common_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_common_autogen/mocs_compilation.cpp.obj
+
+kanban_common_autogen/mocs_compilation.i: kanban_common_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_common_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+kanban_common_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/kanban_common_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_common_autogen/mocs_compilation.cpp.i
+
+kanban_common_autogen/mocs_compilation.s: kanban_common_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_common_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+kanban_common_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/kanban_common_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_common_autogen/mocs_compilation.cpp.s
+
+kanban_gui_autogen/mocs_compilation.obj: kanban_gui_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_gui_autogen/mocs_compilation.obj
+
+# target to build an object file
+kanban_gui_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/kanban_gui_autogen/mocs_compilation.cpp.obj
+.PHONY : kanban_gui_autogen/mocs_compilation.cpp.obj
+
+kanban_gui_autogen/mocs_compilation.i: kanban_gui_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_gui_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+kanban_gui_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/kanban_gui_autogen/mocs_compilation.cpp.i
+.PHONY : kanban_gui_autogen/mocs_compilation.cpp.i
+
+kanban_gui_autogen/mocs_compilation.s: kanban_gui_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_gui_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+kanban_gui_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/kanban_gui_autogen/mocs_compilation.cpp.s
+.PHONY : kanban_gui_autogen/mocs_compilation.cpp.s
+
+src/application/CLIController.obj: src/application/CLIController.cpp.obj
+.PHONY : src/application/CLIController.obj
+
+# target to build an object file
+src/application/CLIController.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIController.cpp.obj
+.PHONY : src/application/CLIController.cpp.obj
+
+src/application/CLIController.i: src/application/CLIController.cpp.i
+.PHONY : src/application/CLIController.i
+
+# target to preprocess a source file
+src/application/CLIController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIController.cpp.i
+.PHONY : src/application/CLIController.cpp.i
+
+src/application/CLIController.s: src/application/CLIController.cpp.s
+.PHONY : src/application/CLIController.s
+
+# target to generate assembly for a file
+src/application/CLIController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIController.cpp.s
+.PHONY : src/application/CLIController.cpp.s
+
 src/application/CLIView.obj: src/application/CLIView.cpp.obj
 .PHONY : src/application/CLIView.obj
 
 # target to build an object file
 src/application/CLIView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIView.cpp.obj
 .PHONY : src/application/CLIView.cpp.obj
 
 src/application/CLIView.i: src/application/CLIView.cpp.i
@@ -142,7 +342,7 @@ src/application/CLIView.i: src/application/CLIView.cpp.i
 
 # target to preprocess a source file
 src/application/CLIView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIView.cpp.i
 .PHONY : src/application/CLIView.cpp.i
 
 src/application/CLIView.s: src/application/CLIView.cpp.s
@@ -150,7 +350,7 @@ src/application/CLIView.s: src/application/CLIView.cpp.s
 
 # target to generate assembly for a file
 src/application/CLIView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/CLIView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/CLIView.cpp.s
 .PHONY : src/application/CLIView.cpp.s
 
 src/application/KanbanService.obj: src/application/KanbanService.cpp.obj
@@ -158,7 +358,7 @@ src/application/KanbanService.obj: src/application/KanbanService.cpp.obj
 
 # target to build an object file
 src/application/KanbanService.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/KanbanService.cpp.obj
 .PHONY : src/application/KanbanService.cpp.obj
 
 src/application/KanbanService.i: src/application/KanbanService.cpp.i
@@ -166,7 +366,7 @@ src/application/KanbanService.i: src/application/KanbanService.cpp.i
 
 # target to preprocess a source file
 src/application/KanbanService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/KanbanService.cpp.i
 .PHONY : src/application/KanbanService.cpp.i
 
 src/application/KanbanService.s: src/application/KanbanService.cpp.s
@@ -174,7 +374,7 @@ src/application/KanbanService.s: src/application/KanbanService.cpp.s
 
 # target to generate assembly for a file
 src/application/KanbanService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/application/KanbanService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/application/KanbanService.cpp.s
 .PHONY : src/application/KanbanService.cpp.s
 
 src/application/main.obj: src/application/main.cpp.obj
@@ -206,7 +406,7 @@ src/domain/ActivityLog.obj: src/domain/ActivityLog.cpp.obj
 
 # target to build an object file
 src/domain/ActivityLog.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/ActivityLog.cpp.obj
 .PHONY : src/domain/ActivityLog.cpp.obj
 
 src/domain/ActivityLog.i: src/domain/ActivityLog.cpp.i
@@ -214,7 +414,7 @@ src/domain/ActivityLog.i: src/domain/ActivityLog.cpp.i
 
 # target to preprocess a source file
 src/domain/ActivityLog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/ActivityLog.cpp.i
 .PHONY : src/domain/ActivityLog.cpp.i
 
 src/domain/ActivityLog.s: src/domain/ActivityLog.cpp.s
@@ -222,7 +422,7 @@ src/domain/ActivityLog.s: src/domain/ActivityLog.cpp.s
 
 # target to generate assembly for a file
 src/domain/ActivityLog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/ActivityLog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/ActivityLog.cpp.s
 .PHONY : src/domain/ActivityLog.cpp.s
 
 src/domain/Board.obj: src/domain/Board.cpp.obj
@@ -230,7 +430,7 @@ src/domain/Board.obj: src/domain/Board.cpp.obj
 
 # target to build an object file
 src/domain/Board.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Board.cpp.obj
 .PHONY : src/domain/Board.cpp.obj
 
 src/domain/Board.i: src/domain/Board.cpp.i
@@ -238,7 +438,7 @@ src/domain/Board.i: src/domain/Board.cpp.i
 
 # target to preprocess a source file
 src/domain/Board.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Board.cpp.i
 .PHONY : src/domain/Board.cpp.i
 
 src/domain/Board.s: src/domain/Board.cpp.s
@@ -246,7 +446,7 @@ src/domain/Board.s: src/domain/Board.cpp.s
 
 # target to generate assembly for a file
 src/domain/Board.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Board.cpp.s
 .PHONY : src/domain/Board.cpp.s
 
 src/domain/Card.obj: src/domain/Card.cpp.obj
@@ -254,7 +454,7 @@ src/domain/Card.obj: src/domain/Card.cpp.obj
 
 # target to build an object file
 src/domain/Card.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Card.cpp.obj
 .PHONY : src/domain/Card.cpp.obj
 
 src/domain/Card.i: src/domain/Card.cpp.i
@@ -262,7 +462,7 @@ src/domain/Card.i: src/domain/Card.cpp.i
 
 # target to preprocess a source file
 src/domain/Card.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Card.cpp.i
 .PHONY : src/domain/Card.cpp.i
 
 src/domain/Card.s: src/domain/Card.cpp.s
@@ -270,7 +470,7 @@ src/domain/Card.s: src/domain/Card.cpp.s
 
 # target to generate assembly for a file
 src/domain/Card.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Card.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Card.cpp.s
 .PHONY : src/domain/Card.cpp.s
 
 src/domain/Column.obj: src/domain/Column.cpp.obj
@@ -278,7 +478,7 @@ src/domain/Column.obj: src/domain/Column.cpp.obj
 
 # target to build an object file
 src/domain/Column.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Column.cpp.obj
 .PHONY : src/domain/Column.cpp.obj
 
 src/domain/Column.i: src/domain/Column.cpp.i
@@ -286,7 +486,7 @@ src/domain/Column.i: src/domain/Column.cpp.i
 
 # target to preprocess a source file
 src/domain/Column.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Column.cpp.i
 .PHONY : src/domain/Column.cpp.i
 
 src/domain/Column.s: src/domain/Column.cpp.s
@@ -294,7 +494,7 @@ src/domain/Column.s: src/domain/Column.cpp.s
 
 # target to generate assembly for a file
 src/domain/Column.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/Column.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/Column.cpp.s
 .PHONY : src/domain/Column.cpp.s
 
 src/domain/User.obj: src/domain/User.cpp.obj
@@ -302,7 +502,7 @@ src/domain/User.obj: src/domain/User.cpp.obj
 
 # target to build an object file
 src/domain/User.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/User.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/User.cpp.obj
 .PHONY : src/domain/User.cpp.obj
 
 src/domain/User.i: src/domain/User.cpp.i
@@ -310,7 +510,7 @@ src/domain/User.i: src/domain/User.cpp.i
 
 # target to preprocess a source file
 src/domain/User.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/User.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/User.cpp.i
 .PHONY : src/domain/User.cpp.i
 
 src/domain/User.s: src/domain/User.cpp.s
@@ -318,15 +518,135 @@ src/domain/User.s: src/domain/User.cpp.s
 
 # target to generate assembly for a file
 src/domain/User.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/domain/User.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/domain/User.cpp.s
 .PHONY : src/domain/User.cpp.s
+
+src/gui/CardDialog.obj: src/gui/CardDialog.cpp.obj
+.PHONY : src/gui/CardDialog.obj
+
+# target to build an object file
+src/gui/CardDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardDialog.cpp.obj
+.PHONY : src/gui/CardDialog.cpp.obj
+
+src/gui/CardDialog.i: src/gui/CardDialog.cpp.i
+.PHONY : src/gui/CardDialog.i
+
+# target to preprocess a source file
+src/gui/CardDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardDialog.cpp.i
+.PHONY : src/gui/CardDialog.cpp.i
+
+src/gui/CardDialog.s: src/gui/CardDialog.cpp.s
+.PHONY : src/gui/CardDialog.s
+
+# target to generate assembly for a file
+src/gui/CardDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardDialog.cpp.s
+.PHONY : src/gui/CardDialog.cpp.s
+
+src/gui/CardWidget.obj: src/gui/CardWidget.cpp.obj
+.PHONY : src/gui/CardWidget.obj
+
+# target to build an object file
+src/gui/CardWidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardWidget.cpp.obj
+.PHONY : src/gui/CardWidget.cpp.obj
+
+src/gui/CardWidget.i: src/gui/CardWidget.cpp.i
+.PHONY : src/gui/CardWidget.i
+
+# target to preprocess a source file
+src/gui/CardWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardWidget.cpp.i
+.PHONY : src/gui/CardWidget.cpp.i
+
+src/gui/CardWidget.s: src/gui/CardWidget.cpp.s
+.PHONY : src/gui/CardWidget.s
+
+# target to generate assembly for a file
+src/gui/CardWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/CardWidget.cpp.s
+.PHONY : src/gui/CardWidget.cpp.s
+
+src/gui/ColumnWidget.obj: src/gui/ColumnWidget.cpp.obj
+.PHONY : src/gui/ColumnWidget.obj
+
+# target to build an object file
+src/gui/ColumnWidget.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/ColumnWidget.cpp.obj
+.PHONY : src/gui/ColumnWidget.cpp.obj
+
+src/gui/ColumnWidget.i: src/gui/ColumnWidget.cpp.i
+.PHONY : src/gui/ColumnWidget.i
+
+# target to preprocess a source file
+src/gui/ColumnWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/ColumnWidget.cpp.i
+.PHONY : src/gui/ColumnWidget.cpp.i
+
+src/gui/ColumnWidget.s: src/gui/ColumnWidget.cpp.s
+.PHONY : src/gui/ColumnWidget.s
+
+# target to generate assembly for a file
+src/gui/ColumnWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/ColumnWidget.cpp.s
+.PHONY : src/gui/ColumnWidget.cpp.s
+
+src/gui/MainWindow.obj: src/gui/MainWindow.cpp.obj
+.PHONY : src/gui/MainWindow.obj
+
+# target to build an object file
+src/gui/MainWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/MainWindow.cpp.obj
+.PHONY : src/gui/MainWindow.cpp.obj
+
+src/gui/MainWindow.i: src/gui/MainWindow.cpp.i
+.PHONY : src/gui/MainWindow.i
+
+# target to preprocess a source file
+src/gui/MainWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/MainWindow.cpp.i
+.PHONY : src/gui/MainWindow.cpp.i
+
+src/gui/MainWindow.s: src/gui/MainWindow.cpp.s
+.PHONY : src/gui/MainWindow.s
+
+# target to generate assembly for a file
+src/gui/MainWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/MainWindow.cpp.s
+.PHONY : src/gui/MainWindow.cpp.s
+
+src/gui/main_gui.obj: src/gui/main_gui.cpp.obj
+.PHONY : src/gui/main_gui.obj
+
+# target to build an object file
+src/gui/main_gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/main_gui.cpp.obj
+.PHONY : src/gui/main_gui.cpp.obj
+
+src/gui/main_gui.i: src/gui/main_gui.cpp.i
+.PHONY : src/gui/main_gui.i
+
+# target to preprocess a source file
+src/gui/main_gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/main_gui.cpp.i
+.PHONY : src/gui/main_gui.cpp.i
+
+src/gui/main_gui.s: src/gui/main_gui.cpp.s
+.PHONY : src/gui/main_gui.s
+
+# target to generate assembly for a file
+src/gui/main_gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_gui.dir/build.make CMakeFiles/kanban_gui.dir/src/gui/main_gui.cpp.s
+.PHONY : src/gui/main_gui.cpp.s
 
 src/persistence/MemoryRepository.obj: src/persistence/MemoryRepository.cpp.obj
 .PHONY : src/persistence/MemoryRepository.obj
 
 # target to build an object file
 src/persistence/MemoryRepository.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/persistence/MemoryRepository.cpp.obj
 .PHONY : src/persistence/MemoryRepository.cpp.obj
 
 src/persistence/MemoryRepository.i: src/persistence/MemoryRepository.cpp.i
@@ -334,7 +654,7 @@ src/persistence/MemoryRepository.i: src/persistence/MemoryRepository.cpp.i
 
 # target to preprocess a source file
 src/persistence/MemoryRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/persistence/MemoryRepository.cpp.i
 .PHONY : src/persistence/MemoryRepository.cpp.i
 
 src/persistence/MemoryRepository.s: src/persistence/MemoryRepository.cpp.s
@@ -342,7 +662,7 @@ src/persistence/MemoryRepository.s: src/persistence/MemoryRepository.cpp.s
 
 # target to generate assembly for a file
 src/persistence/MemoryRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_cli.dir/build.make CMakeFiles/kanban_cli.dir/src/persistence/MemoryRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kanban_common.dir/build.make CMakeFiles/kanban_common.dir/src/persistence/MemoryRepository.cpp.s
 .PHONY : src/persistence/MemoryRepository.cpp.s
 
 # Help Target
@@ -353,7 +673,27 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... kanban_cli_autogen"
+	@echo "... kanban_cli_autogen_timestamp_deps"
+	@echo "... kanban_common_autogen"
+	@echo "... kanban_common_autogen_timestamp_deps"
+	@echo "... kanban_gui_autogen"
+	@echo "... kanban_gui_autogen_timestamp_deps"
 	@echo "... kanban_cli"
+	@echo "... kanban_common"
+	@echo "... kanban_gui"
+	@echo "... kanban_cli_autogen/mocs_compilation.obj"
+	@echo "... kanban_cli_autogen/mocs_compilation.i"
+	@echo "... kanban_cli_autogen/mocs_compilation.s"
+	@echo "... kanban_common_autogen/mocs_compilation.obj"
+	@echo "... kanban_common_autogen/mocs_compilation.i"
+	@echo "... kanban_common_autogen/mocs_compilation.s"
+	@echo "... kanban_gui_autogen/mocs_compilation.obj"
+	@echo "... kanban_gui_autogen/mocs_compilation.i"
+	@echo "... kanban_gui_autogen/mocs_compilation.s"
+	@echo "... src/application/CLIController.obj"
+	@echo "... src/application/CLIController.i"
+	@echo "... src/application/CLIController.s"
 	@echo "... src/application/CLIView.obj"
 	@echo "... src/application/CLIView.i"
 	@echo "... src/application/CLIView.s"
@@ -378,6 +718,21 @@ help:
 	@echo "... src/domain/User.obj"
 	@echo "... src/domain/User.i"
 	@echo "... src/domain/User.s"
+	@echo "... src/gui/CardDialog.obj"
+	@echo "... src/gui/CardDialog.i"
+	@echo "... src/gui/CardDialog.s"
+	@echo "... src/gui/CardWidget.obj"
+	@echo "... src/gui/CardWidget.i"
+	@echo "... src/gui/CardWidget.s"
+	@echo "... src/gui/ColumnWidget.obj"
+	@echo "... src/gui/ColumnWidget.i"
+	@echo "... src/gui/ColumnWidget.s"
+	@echo "... src/gui/MainWindow.obj"
+	@echo "... src/gui/MainWindow.i"
+	@echo "... src/gui/MainWindow.s"
+	@echo "... src/gui/main_gui.obj"
+	@echo "... src/gui/main_gui.i"
+	@echo "... src/gui/main_gui.s"
 	@echo "... src/persistence/MemoryRepository.obj"
 	@echo "... src/persistence/MemoryRepository.i"
 	@echo "... src/persistence/MemoryRepository.s"

@@ -189,8 +189,49 @@ bool Column::hasCard(const Id& cardId) const noexcept {
  * @details Remove todos os cards da coluna.
  *          Operaçao destrutiva - use com cuidado.
  */
-void Column::clear() noexcept {
+
+void Column::clear() {
     cards_.clear();
+}
+
+bool Column::moveCardToPosition(const std::string& cardId, std::size_t newIndex) {
+    // Encontrar o card e sua posição atual
+    auto currentIt = std::find_if(cards_.begin(), cards_.end(),
+        [&cardId](const std::shared_ptr<Card>& card) {
+            return card->id() == cardId;
+        });
+    
+    if (currentIt == cards_.end()) {
+        return false; // Card não encontrado
+    }
+    
+    // Calcular índice atual
+    std::size_t currentIndex = std::distance(cards_.begin(), currentIt);
+    
+    // Se já está na posição desejada, não faz nada
+    if (currentIndex == newIndex) {
+        return true;
+    }
+    
+    // Guardar o card
+    auto card = *currentIt;
+    
+    // Remover da posição atual
+    cards_.erase(currentIt);
+    
+    // Ajustar o novo índice se necessário (porque removemos um elemento)
+    // Nota: não ajustamos newIndex aqui. newIndex representa o índice final desejado
+    // no vetor resultante; após remover o elemento, devemos inserir na posição
+    // igual a newIndex (se for <= tamanho) ou no final.
+    
+    // Inserir na nova posição
+    if (newIndex >= cards_.size()) {
+        cards_.push_back(card); // Inserir no final
+    } else {
+        cards_.insert(cards_.begin() + newIndex, card);
+    }
+    
+    return true;
 }
 
 } // namespace domain

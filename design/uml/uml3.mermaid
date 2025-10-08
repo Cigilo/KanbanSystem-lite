@@ -1,0 +1,382 @@
+classDiagram
+    %% ======= Domain (Modelo de Domínio) =======
+    class Activity {
+        -string id_
+        -string description_
+        -TimePoint when_
+        +Activity(id, description, when)
+        +id() string
+        +description() string
+        +when() TimePoint
+        +operator<<(ostream, Activity) ostream
+    }
+
+    class ActivityLog {
+        -vector~Activity~ activities_
+        +add(Activity act) void
+        +activities() vector~Activity~
+        +size() size_t
+        +empty() bool
+        +last() const Activity*
+        +clear() void
+    }
+
+    class Board {
+        -string id_
+        -string name_
+        -vector~shared_ptr~Column~~ columns_
+        -shared_ptr~ActivityLog~ activityLog_
+        +Board(id, name)
+        +id() string
+        +name() string
+        +setName(name) void
+        +addColumn(shared_ptr~Column~) void
+        +removeColumnById(columnId) optional~shared_ptr~Column~~
+        +columns() vector~shared_ptr~Column~~
+        +findColumn(columnId) optional~shared_ptr~Column~~
+        +columnCount() size_t
+        +moveCard(cardId, fromColumnId, toColumnId) void
+        +setActivityLog(shared_ptr~ActivityLog~) void
+        +activityLog() shared_ptr~ActivityLog~
+        +hasColumn(columnId) bool
+        +clear() void
+        +setColumns(columns) void
+    }
+
+    class Column {
+        -string id_
+        -string name_
+        -vector~shared_ptr~Card~~ cards_
+        +Column(id, name)
+        +id() string
+        +name() string
+        +setName(name) void
+        +addCard(shared_ptr~Card~) void
+        +insertCardAt(index, shared_ptr~Card~) void
+        +removeCardById(cardId) optional~shared_ptr~Card~~
+        +cards() vector~shared_ptr~Card~~
+        +findCard(cardId) optional~shared_ptr~Card~~
+        +size() size_t
+        +empty() bool
+        +hasCard(cardId) bool
+        +clear() void
+        +moveCardToPosition(cardId, newIndex) bool
+    }
+
+    class Card {
+        -string id_
+        -string title_
+        -optional~string~ description_
+        -int priority_
+        -TimePoint createdAt_
+        -TimePoint updatedAt_
+        -vector~shared_ptr~Tag~~ tags_
+        +Card(id, title)
+        +id() string
+        +title() string
+        +setTitle(title) void
+        +description() optional~string~
+        +setDescription(desc) void
+        +priority() int
+        +setPriority(p) void
+        +createdAt() TimePoint
+        +updatedAt() TimePoint
+        +addTag(shared_ptr~Tag~) void
+        +removeTagById(tagId) bool
+        +hasTag(tagId) bool
+        +clearTags() void
+        +tags() vector~shared_ptr~Tag~~
+        +operator==(other) bool
+        +operator<(other) bool
+        +touchUpdated() void
+        +operator<<(ostream, Card) ostream
+    }
+
+    class Tag {
+        -string id_
+        -string name_
+        +Tag(id, name)
+        +id() string
+        +name() string
+        +setName(name) void
+        +operator<<(ostream, Tag) ostream
+    }
+
+    class User {
+        -string id_
+        -string name_
+        +User(id, name)
+        +id() string
+        +name() string
+        +setName(name) void
+        +operator==(other) bool
+        +operator!=(other) bool
+        +operator<<(ostream, User) ostream
+    }
+
+    %% ======= Interfaces (Camada de Abstraçao) =======
+    class IFilter {
+        <<interface>>
+        +~IFilter()
+        +matches(const Card& card) bool
+        +clone() unique_ptr~IFilter~
+    }
+
+    class IRepository~T, Id~ {
+        <<interface>>
+        +~IRepository()
+        +add(shared_ptr~T~) void
+        +remove(Id) void
+        +getAll() vector~shared_ptr~T~~
+        +findById(Id) optional~shared_ptr~T~~
+    }
+
+    class IService {
+        <<interface>>
+        +~IService()
+        +createSampleData() void
+        +createBoard(name) string
+        +addColumn(boardId, columnName) string
+        +addCard(boardId, columnId, title) string
+        +moveCard(boardId, cardId, fromColumnId, toColumnId) void
+        +listBoards() vector~shared_ptr~Board~~
+        +findBoard(boardId) optional~shared_ptr~Board~~
+        +listColumns(boardId) vector~shared_ptr~Column~~
+        +listCards(columnId) vector~shared_ptr~Card~~
+    }
+
+    class IView {
+        <<interface>>
+        +~IView()
+        +showMessage(msg) void
+        +showError(msg) void
+        +displayBoards(vector~shared_ptr~Board~~) void
+        +displayColumns(vector~shared_ptr~Column~~) void
+        +displayCards(vector~shared_ptr~Card~~) void
+    }
+
+    %% ======= Persistence (Camada de Persistência) =======
+    class MemoryRepositoryException {
+        +MemoryRepositoryException(what)
+    }
+
+    class MemoryRepository~T, Id~ {
+        -map~Id, shared_ptr~T~~ data_
+        +MemoryRepository()
+        +~MemoryRepository()
+        +add(shared_ptr~T~) void
+        +remove(Id) void
+        +getAll() vector~shared_ptr~T~~
+        +findById(Id) optional~shared_ptr~T~~
+        +clear() void
+        +size() size_t
+        +exists(Id) bool
+    }
+
+    class FileRepositoryException {
+        +FileRepositoryException(what)
+    }
+
+    class FileRepository~T, Id~ {
+        -string path_
+        +FileRepository(path)
+        +~FileRepository()
+        +add(shared_ptr~T~) void
+        +remove(Id) void
+        +getAll() vector~shared_ptr~T~~
+        +findById(Id) optional~shared_ptr~T~~
+    }
+
+    %% ======= Application (Camada de Aplicaçao) =======
+    class KanbanService {
+        -MemoryRepository~Board~ boardRepository_
+        -MemoryRepository~Column~ columnRepository_
+        -MemoryRepository~Card~ cardRepository_
+        -MemoryRepository~User~ userRepository_
+        -int nextBoardId_
+        -int nextColumnId_
+        -int nextCardId_
+        -int nextUserId_
+        +KanbanService()
+        +~KanbanService()
+        +createSampleData() void
+        +createBoard(name) string
+        +addColumn(boardId, columnName) string
+        +addCard(boardId, columnId, title) string
+        +moveCard(boardId, cardId, fromColumnId, toColumnId) void
+        +listBoards() vector~shared_ptr~Board~~
+        +findBoard(boardId) optional~shared_ptr~Board~~
+        +listColumns(boardId) vector~shared_ptr~Column~~
+        +listCards(columnId) vector~shared_ptr~Card~~
+        +getAllTags(boardId) vector~shared_ptr~Tag~~
+        +updateCardTags(boardId, cardId, tags) void
+        +moveCardWithinColumn(boardId, columnId, cardId, newIndex) void
+        +moveColumn(boardId, fromColumnId, toColumnId) void
+        -generateBoardId() string
+        -generateColumnId() string
+        -generateCardId() string
+        -generateUserId() string
+        -validateBoardExists(boardId) void
+        -validateColumnExists(columnId) void
+    }
+
+    class CLIView {
+        +CLIView()
+        +~CLIView()
+        +showMessage(msg) void
+        +showError(msg) void
+        +displayBoards(boards) void
+        +displayColumns(columns) void
+        +displayCards(cards) void
+        +showWelcome() void
+        +showDemoHeader() void
+        +showDemoFooter() void
+    }
+
+    class CLIController {
+        -KanbanService& service_
+        -CLIView& view_
+        +CLIController(service, view)
+        +run() void
+        -handleCreateBoard(args) void
+        -handleMoveCard(args) void
+        -handleListBoards() void
+        -showHelp() void
+    }
+
+    %% ======= GUI (Interface Gráfica) =======
+    class MainWindow {
+        -unique_ptr~KanbanService~ service_
+        -QTabWidget* boardsTabWidget_
+        -QListWidget* boardsListWidget_
+        -QGroupBox* filterGroup_
+        -QComboBox* tagFilterCombo_
+        -QCheckBox* highPriorityFilter_
+        -QCheckBox* mediumPriorityFilter_
+        -QCheckBox* lowPriorityFilter_
+        -map~string, map~string, ColumnWidget*~~ columnWidgetsByBoard_
+        -string currentBoardId_
+        +MainWindow(parent)
+        +~MainWindow()
+        -setupUI() void
+        -setupConnections() void
+        -setupFilterPanel() void
+        -applyFilters() void
+        -clearFilters() void
+        -cardMatchesFilter(card) bool
+        -refreshFilterTags() void
+    }
+
+    class ColumnWidget {
+        -shared_ptr~Column~ column_
+        -QVBoxLayout* mainLayout_
+        -QVBoxLayout* cardsLayout_
+        -QScrollArea* scrollArea_
+        -bool dragOver_
+        -int dropIndicatorIndex_
+        +ColumnWidget(column, parent)
+        +getColumnId() string
+        +refreshCards(predicate) void
+        +cardWidgets() vector~CardWidget*~
+        +addNewCard() void
+        ..signals..
+        +cardMoved(cardId, fromColumnId, toColumnId)
+        +cardAdded(columnId, title)
+        +cardReordered(columnId, cardId, newIndex)
+        +columnMoved(fromColumnId, toColumnId)
+    }
+
+    class CardWidget {
+        -shared_ptr~Card~ card_
+        -QLabel* titleLabel_
+        -QLabel* descriptionLabel_
+        -QLabel* priorityLabel_
+        -QHBoxLayout* tagsLayout_
+        +CardWidget(card, parent)
+        +getCardId() string
+        +getCard() shared_ptr~Card~
+        +applyFilter(visible) void
+        -updateTagsDisplay() void
+        ..signals..
+        +moveUpRequested(cardId)
+        +moveDownRequested(cardId)
+    }
+
+    class CardDialog {
+        -shared_ptr~Card~ card_
+        -QLineEdit* titleEdit_
+        -QTextEdit* descriptionEdit_
+        -QComboBox* priorityCombo_
+        -QListWidget* tagsListWidget_
+        -QComboBox* tagsComboBox_
+        +CardDialog(card, parent)
+        +getTitle() QString
+        +getDescription() QString
+        +getPriority() int
+        +getTags() QStringList
+        -addTag() void
+        -removeTag() void
+    }
+
+    %% ======= Relações de Composiçao/Agregaçao =======
+    ActivityLog "1" *-- "0..*" Activity : contém
+    Board "1" *-- "0..*" Column : contém
+    Column "1" *-- "0..*" Card : contém
+    Card "1" *-- "0..*" Tag : possui tags
+    Board "1" --> "0..1" ActivityLog : registra atividades
+
+    MainWindow "1" *-- "1" KanbanService : usa
+    MainWindow "1" *-- "0..*" ColumnWidget : contém
+    ColumnWidget "1" *-- "0..*" CardWidget : contém
+
+    %% ======= Relações de Herança/Implementaçao =======
+    IRepository~T,Id~ <|.. MemoryRepository~T,Id~ : implementa
+    IRepository~T,Id~ <|.. FileRepository~T,Id~ : implementa
+    IService <|.. KanbanService : implementa
+    IView <|.. CLIView : implementa
+
+    MemoryRepositoryException --|> runtime_error
+    FileRepositoryException --|> runtime_error
+
+    QDialog <|-- CardDialog
+    QWidget <|-- CardWidget
+    QFrame <|-- ColumnWidget
+    QMainWindow <|-- MainWindow
+
+    %% ======= Relações de Dependência/Uso =======
+    KanbanService ..> IRepository~T,Id~ : usa repositórios
+    KanbanService ..> Board : manipula
+    KanbanService ..> Column : manipula
+    KanbanService ..> Card : manipula
+    KanbanService ..> User : manipula
+    KanbanService ..> Tag : manipula
+
+    CLIView ..> Board : exibe
+    CLIView ..> Column : exibe
+    CLIView ..> Card : exibe
+
+    CLIController ..> KanbanService : controla
+    CLIController ..> CLIView : controla
+
+    IFilter ..> Card : filtra
+
+    MainWindow ..> ColumnWidget : gerencia
+    MainWindow ..> KanbanService : usa serviço
+    ColumnWidget ..> CardWidget : contém
+    CardWidget ..> Card : exibe
+    CardDialog ..> Card : edita
+
+    %% ======= Especializações de Repositório =======
+    MemoryRepository~Board~ ..|> Board : persiste
+    MemoryRepository~Column~ ..|> Column : persiste
+    MemoryRepository~Card~ ..|> Card : persiste
+    MemoryRepository~User~ ..|> User : persiste
+    MemoryRepository~Tag~ ..|> Tag : persiste
+
+    note for KanbanService "Novos métodos:\n- getAllTags()\n- updateCardTags()\n- moveCardWithinColumn()\n- moveColumn()"
+    note for Column "Novo método:\n- moveCardToPosition()"
+    note for Board "Novo método:\n- setColumns()"
+    note for MainWindow "Implementa sistema de filtros\npor tags e prioridades"
+    note for ColumnWidget "Suporte a drag & drop\nreordenação de cards"
+    note for CardWidget "Exibe tags e prioridade\nBotões de reordenação"
+    note for CardDialog "Edição completa de cards\nGerenciamento de tags"

@@ -33,6 +33,17 @@ class Card;
 class Column {
 public:
     /**
+     * @brief Move um card para uma nova posição na mesma coluna
+     * @param cardId ID do card a ser movido
+     * @param newIndex Nova posição do card (base 0)
+     * @return true se o card foi movido com sucesso, false caso contrário
+     */
+    bool moveCardToPosition(const std::string& cardId, std::size_t newIndex);
+    /**
+     * @brief Remove todos os cards da coluna
+     */
+    void clear();
+    /**
      * @brief Tipo auxiliar para IDs da coluna
      * @details Facilita futuras alterações no tipo de ID mantendo
      *          a interface consistente.
@@ -178,12 +189,6 @@ public:
      */
     bool hasCard(const Id& cardId) const noexcept;
 
-    /**
-     * @brief Limpa completamente a coluna
-     * @details Remove todos os cards da coluna.
-     *          Operaçao destrutiva - use com cuidado.
-     */
-    void clear() noexcept;
 
 private:
     Id id_;                                  ///< @brief Identificador único da coluna

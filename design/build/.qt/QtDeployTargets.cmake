@@ -1,0 +1,8 @@
+set(__QT_DEPLOY_TARGET_kanban_common_FILE C:/Users/jp/Desktop/KanbanSystem-lite/design/build/libkanban_common.a)
+set(__QT_DEPLOY_TARGET_kanban_common_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_kanban_cli_FILE C:/Users/jp/Desktop/KanbanSystem-lite/design/build/bin/kanban_cli.exe)
+set(__QT_DEPLOY_TARGET_kanban_cli_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_kanban_cli_RUNTIME_DLLS )
+set(__QT_DEPLOY_TARGET_kanban_gui_FILE C:/Users/jp/Desktop/KanbanSystem-lite/design/build/bin/kanban_gui.exe)
+set(__QT_DEPLOY_TARGET_kanban_gui_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_kanban_gui_RUNTIME_DLLS C:/msys64/mingw64/bin/Qt6Widgets.dll;C:/msys64/mingw64/bin/Qt6Gui.dll;C:/msys64/mingw64/bin/Qt6Core.dll)

@@ -37,6 +37,28 @@ namespace application {
  */
 class KanbanService : public interfaces::IService {
 public:
+
+    std::vector<std::shared_ptr<domain::Tag>> getAllTags(const std::string& boardId);
+    void updateCardTags(const std::string& boardId, const std::string& cardId, const std::vector<std::string>& tags);
+
+    /**
+     * @brief Reordena um card dentro da mesma coluna
+     * @param boardId ID do board
+     * @param columnId ID da coluna  
+     * @param cardId ID do card a ser reordenado
+     * @param newIndex Nova posição do card
+     */
+    void moveCardWithinColumn(const std::string& boardId, 
+                             const std::string& columnId, 
+                             const std::string& cardId, 
+                             std::size_t newIndex);
+    /**
+     * @brief Move um card para uma nova posição dentro da mesma coluna
+     * @param columnId ID da coluna
+     * @param cardId ID do card a ser movido
+     * @param newIndex Nova posição do card
+     */
+    void moveCardWithinColumn(const std::string& columnId, const std::string& cardId, int newIndex);
     /**
      * @brief Construtor do KanbanService
      * @details Inicializa os repositórios em memória e os contadores de ID
@@ -54,6 +76,16 @@ public:
     // ============================================================================
     // OPERAÇÕES PRINCIPAIS DO SISTEMA
     // ============================================================================
+
+    /**
+     * @brief Move/reordena colunas dentro de um board
+     * @param boardId ID do board
+     * @param fromColumnId ID da coluna a ser movida
+     * @param toColumnId ID da coluna de destino (insere antes desta)
+     */
+    void moveColumn(const std::string& boardId, 
+                    const std::string& fromColumnId, 
+                    const std::string& toColumnId);
 
     /**
      * @brief Cria dados de exemplo para demonstraçao do sistema

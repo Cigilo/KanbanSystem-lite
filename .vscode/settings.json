@@ -66,6 +66,15 @@
     "map": "cpp",
     "semaphore": "cpp",
     "stop_token": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "codecvt": "cpp",
+    "condition_variable": "cpp",
+    "cstdarg": "cpp",
+    "list": "cpp",
+    "set": "cpp",
+    "unordered_set": "cpp",
+    "future": "cpp",
+    "mutex": "cpp",
+    "stdfloat": "cpp"
   }
 }

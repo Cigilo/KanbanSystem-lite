@@ -15,6 +15,8 @@
 #include <stdexcept>
 #include <sstream>
 
+using namespace kanban::domain;
+
 namespace kanban {
 namespace application {
 
@@ -125,7 +127,7 @@ void KanbanService::createSampleData() {
     std::string doneId = addColumn(boardId, "Done");
     
     // Adicionar cards de exemplo que representam tarefas típicas de desenvolvimento
-    addCard(boardId, todoId, "Configurar ambiente de desenvolvimento");
+    addCard(boardId, todoId, "ambiente de desenvolvimento");
     addCard(boardId, todoId, "Implementar classes de domínio");
     addCard(boardId, doingId, "Criar KanbanService");
     addCard(boardId, doneId, "Definir arquitetura do projeto");
@@ -307,6 +309,156 @@ std::vector<std::shared_ptr<domain::Card>> KanbanService::listCards(const std::s
     }
     return {}; // Retorna vector vazio se coluna nao for encontrada (apesar da validaçao)
 }
+
+void KanbanService::moveColumn(const std::string& boardId, 
+                              const std::string& fromColumnId, 
+                              const std::string& toColumnId) {
+    validateBoardExists(boardId);
+    validateColumnExists(fromColumnId);
+    validateColumnExists(toColumnId);
+    
+    auto boardOpt = boardRepository_.findById(boardId);
+    if (!boardOpt.has_value()) {
+        throw std::runtime_error("Board não encontrado: " + boardId);
+    }
+    
+    auto board = boardOpt.value();
+    auto columns = board->columns();
+    
+    // Encontrar índices das colunas
+    int fromIndex = -1;
+    int toIndex = -1;
+    
+    for (size_t i = 0; i < columns.size(); ++i) {
+        if (columns[i]->id() == fromColumnId) fromIndex = i;
+        if (columns[i]->id() == toColumnId) toIndex = i;
+    }
+    
+    if (fromIndex == -1 || toIndex == -1) {
+        throw std::runtime_error("Coluna de origem ou destino não encontrada no board");
+    }
+    
+    // Reordenar: remover da posição atual e inserir na nova posição
+    auto columnToMove = columns[fromIndex];
+    
+    // Se movendo para frente
+    if (fromIndex < toIndex) {
+        columns.insert(columns.begin() + toIndex + 1, columnToMove);
+        columns.erase(columns.begin() + fromIndex);
+    } 
+    // Se movendo para trás  
+    else {
+        columns.insert(columns.begin() + toIndex, columnToMove);
+        columns.erase(columns.begin() + fromIndex + 1);
+    }
+    
+    // ATUALIZAR O BOARD COM A NOVA ORDEM - ADICIONE ESTA LINHA:
+    board->setColumns(columns);
+}
+
+void KanbanService::moveCardWithinColumn(const std::string& boardId, 
+                                        const std::string& columnId, 
+                                        const std::string& cardId, 
+                                        std::size_t newIndex) {
+    auto boardOpt = findBoard(boardId);
+    if (!boardOpt) {
+        throw std::runtime_error("Board não encontrado: " + boardId);
+    }
+    
+    auto board = *boardOpt;
+    auto columnOpt = board->findColumn(columnId);
+    if (!columnOpt) {
+        throw std::runtime_error("Coluna não encontrada: " + columnId);
+    }
+    
+    auto column = *columnOpt;
+    bool success = column->moveCardToPosition(cardId, newIndex);
+    
+    if (!success) {
+        throw std::runtime_error("Card não encontrado na coluna: " + cardId);
+    }
+    
+    // Registrar a atividade de reordenação se o board tiver ActivityLog
+    auto activityLog = board->activityLog();
+    if (activityLog) {
+        auto now = std::chrono::system_clock::now();
+        auto cardOpt = column->findCard(cardId);
+        if (cardOpt) {
+            auto card = *cardOpt;
+            std::string description = "Card '" + card->title() + "' reordenado na coluna '" + column->name() + "' para posição " + std::to_string(newIndex + 1);
+            
+            // CORREÇÃO: Adicionar namespace domain::
+            domain::Activity activity(cardId + "_reorder", description, now);
+            activityLog->add(std::move(activity));
+        }
+    }
+}
+
+std::vector<std::shared_ptr<domain::Tag>> KanbanService::getAllTags(const std::string& boardId) {
+    auto boardOpt = findBoard(boardId);
+    if (!boardOpt) return {};
+    
+    std::map<std::string, std::shared_ptr<domain::Tag>> uniqueTags;
+    auto board = *boardOpt;
+    
+    for (const auto& column : board->columns()) {
+        for (const auto& card : column->cards()) {
+            for (const auto& tag : card->tags()) {
+                uniqueTags[tag->id()] = tag;
+            }
+        }
+    }
+    
+    std::vector<std::shared_ptr<domain::Tag>> result;
+    for (const auto& pair : uniqueTags) {
+        result.push_back(pair.second);
+    }
+    
+    return result;
+}
+
+void KanbanService::updateCardTags(const std::string& boardId, const std::string& cardId, const std::vector<std::string>& tagNames) {
+    auto boardOpt = findBoard(boardId);
+    if (!boardOpt) throw std::runtime_error("Board não encontrado");
+    
+    auto board = *boardOpt;
+    
+    // Encontrar o card em qualquer coluna
+    std::shared_ptr<domain::Card> targetCard;
+    std::shared_ptr<domain::Column> parentColumn;
+    
+    for (const auto& column : board->columns()) {
+        auto cardOpt = column->findCard(cardId);
+        if (cardOpt) {
+            targetCard = *cardOpt;
+            parentColumn = column;
+            break;
+        }
+    }
+    
+    if (!targetCard) throw std::runtime_error("Card não encontrado");
+    
+    // Limpar tags atuais
+    targetCard->clearTags();
+    
+    // Adicionar novas tags
+    for (const auto& tagName : tagNames) {
+        auto tag = std::make_shared<domain::Tag>(tagName, tagName);
+        targetCard->addTag(tag);
+    }
+    
+    // Registrar atividade
+    auto activityLog = board->activityLog();
+    if (activityLog) {
+        auto now = std::chrono::system_clock::now();
+        std::string description = "Tags do card '" + targetCard->title() + "' atualizadas";
+        domain::Activity activity(cardId + "_tags_update", description, now);
+        activityLog->add(std::move(activity));
+    }
+}
+
+
+
 
 } // namespace application
 } // namespace kanban
